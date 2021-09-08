@@ -15,6 +15,8 @@ vim.api.nvim_command("set incsearch")
 vim.api.nvim_command("set fileformats=unix,dos,mac")
 vim.api.nvim_command("set shell=$SHELL")
 vim.api.nvim_command("set mouse=a")
+vim.api.nvim_command("set cursorline")
+vim.api.nvim_command("set cursorcolumn")
 
 vim.g.session_directory = "~/.vim/session"
 vim.g.session_autoload = "no"
