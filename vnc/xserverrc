@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -z  $DISPLAY ]; then
+  exec Xvfb :0 -screen 0 1920x1080x24;
+else 
+  exec /usr/bin/X -nolisten tcp "$@";
+fi

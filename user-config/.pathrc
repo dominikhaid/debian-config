@@ -1,0 +1,20 @@
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+source "$HOME/.cargo/env"
+export TMPDIR="/tmp"
+export PATH="$HOME/neovim/bin:$PATH"
+export PATH=$PATH:$HOME/.local/bin
+export GOROOT=/usr/local/go 
+export GOPATH=$HOME/Dokumente/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+source /etc/profile.d/java.sh
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+source "$HOME/antigen.zsh"
+source /usr/share/autojump/autojump.sh
+source $HOME/.config/broot/launcher/bash/br
+
+
