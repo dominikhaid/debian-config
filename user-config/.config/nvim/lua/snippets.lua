@@ -71,7 +71,6 @@ end
 --- move to prev/next item in completion menu
 --- jump to prev/next snippet's placeholder
 local luasnip = require "luasnip"
-
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
@@ -96,5 +95,7 @@ end
 
 -- Load snippets from my-snippets folder
 require("luasnip/loaders/from_vscode").load(
-  {paths = {"~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets"}}
+  {paths = {"$HOME/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets"}}
 )
+
+require("luasnip/loaders/from_vscode").lazy_load()

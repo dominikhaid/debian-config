@@ -96,7 +96,6 @@ if fn.empty(fn.glob(install_path)) == 0 then
     -- Config
     require "config"
 
-    require("lualine")
     require("bufferline").setup {}
 
     vim.api.nvim_command("augroup lsp")

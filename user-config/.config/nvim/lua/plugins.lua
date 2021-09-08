@@ -17,7 +17,7 @@ return require("packer").startup(
     --
     use {"sudormrfbin/cheatsheet.nvim"}
     use {
-      "folke/which-key.nvim",
+      "folke/which-key.nvim"
     }
     --
     --UI
@@ -25,7 +25,7 @@ return require("packer").startup(
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons", opt = true}
     }
-    --use {"ray-x/navigator.lua", requires = {"ray-x/guihua.lua", run = "cd lua/fzy && make"}}
+    --    use {"ray-x/navigator.lua", requires = {"ray-x/guihua.lua", run = "cd lua/fzy && make"}}
     use "simrat39/symbols-outline.nvim"
     use {"glepnir/lspsaga.nvim"}
     --use {"RishabhRD/nvim-lsputils"}
@@ -87,7 +87,7 @@ return require("packer").startup(
     --Rest
     use {
       "NTBBloodbath/rest.nvim",
-      requires = {"nvim-lua/plenary.nvim"},
+      requires = {"nvim-lua/plenary.nvim"}
     }
 
     --
