@@ -2,7 +2,7 @@
 require "config.goto"
 require "config.diag"
 require "config.icons"
-require "config.lsputils"
+--require "config.lsputils"
 --require "config.lspnav"
 require "config.symbols"
 require "config.lspsaga"
