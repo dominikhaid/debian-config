@@ -109,13 +109,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dominik/.local/share/nvim/site/pack/packer/start/glow.nvim"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "/home/dominik/.local/share/nvim/site/pack/packer/start/guihua.lua"
+  },
   ["lexima.vim"] = {
     loaded = true,
     path = "/home/dominik/.local/share/nvim/site/pack/packer/start/lexima.vim"
-  },
-  ["lspsaga.nvim"] = {
-    loaded = true,
-    path = "/home/dominik/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -124,6 +124,10 @@ _G.packer_plugins = {
   ["minimap.vim"] = {
     loaded = true,
     path = "/home/dominik/.local/share/nvim/site/pack/packer/start/minimap.vim"
+  },
+  ["navigator.lua"] = {
+    loaded = true,
+    path = "/home/dominik/.local/share/nvim/site/pack/packer/start/navigator.lua"
   },
   neogit = {
     loaded = true,
@@ -176,10 +180,6 @@ _G.packer_plugins = {
   ["nvim-lspinstall"] = {
     loaded = true,
     path = "/home/dominik/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
-  },
-  ["nvim-lsputils"] = {
-    loaded = true,
-    path = "/home/dominik/.local/share/nvim/site/pack/packer/start/nvim-lsputils"
   },
   ["nvim-treesitter"] = {
     loaded = true,

@@ -49,10 +49,6 @@ if fn.empty(fn.glob(install_path)) == 0 then
 
   local servers = require "lspinstall".installed_servers()
 
-  local function isEmpty(s)
-    return s == nil or s == ""
-  end
-
   local function findInArray(set, key)
     for a, b in pairs(set) do
       if (b == key) then

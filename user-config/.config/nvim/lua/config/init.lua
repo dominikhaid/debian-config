@@ -1,11 +1,5 @@
 -- LUA INIT
-require "config.goto"
-require "config.diag"
-require "config.icons"
---require "config.lsputils"
---require "config.lspnav"
 require "config.symbols"
-require "config.lspsaga"
 require "config.telescope"
 require "config.treesitter"
 require "config.fold"

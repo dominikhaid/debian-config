@@ -1,0 +1,95 @@
+local opts = {noremap = true, silent = true}
+-- LSP Native
+--vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) --NOT WORKING
+--vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+vim.api.nvim_set_keymap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+--Lsp Symbols
+--vim.api.nvim_set_keymap("n", "g0", "<cmd>:SymbolsOutline<CR>", opts)
+--vim.api.nvim_set_keymap("n", "g0", "<cmd>:Telescope lsp_document_symbols<CR>", opts)
+
+--LSP SAGA
+--vim.api.nvim_set_keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
+--vim.api.nvim_set_keymap("n", "gs", "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "gr", "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "gd", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<leader>cd", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "<leader>cD", "<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "[e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)
+--vim.api.nvim_set_keymap("n", "]e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", opts)
+
+--LSP UTILS
+--vim.lsp.handlers["textDocument/codeAction"] = require "lsputil.codeAction".code_action_handler
+--vim.lsp.handlers["textDocument/references"] = require "lsputil.locations".references_handler
+--vim.lsp.handlers["textDocument/definition"] = require "lsputil.locations".definition_handler
+--vim.lsp.handlers["textDocument/declaration"] = require "lsputil.locations".declaration_handler
+--vim.lsp.handlers["textDocument/typeDefinition"] = require "lsputil.locations".typeDefinition_handler
+--vim.lsp.handlers["textDocument/implementation"] = require "lsputil.locations".implementation_handler
+--vim.lsp.handlers["textDocument/documentSymbol"] = require "lsputil.symbols".document_handler
+--vim.lsp.handlers["workspace/symbol"] = require "lsputil.symbols".workspace_handler
+
+--LSP Navigator
+--n 	gr 	show reference and context
+--i 	<m-k> 	signature help
+--n 	<gs> 	signature help
+--n 	gW 	workspace symbol
+--n 	gD 	declaration
+--n 	g0 	document symbol
+--n 	<C-]> 	go to definition (if multiple show listview)
+--n 	gp 	definition
+--n 	<C-LeftMouse> 	definition
+--n 	g<LeftMouse> 	implementation
+--n 	gT 	treesitter document symbol
+--n 	<Leader>gT 	treesitter symbol for all open buffers
+--n 	K 	hover doc
+--n 	<Space>ca 	code action (when you see bulb )
+--n 	<Space>la 	code lens action (when you see a codelens indicator)
+--v 	<Space>cA 	range code action (when you see bulb )
+--n 	<Space>rn 	rename with floating window
+--n 	<Leader>re 	rename (lsp default)
+--n 	<Leader>gi 	incoming calls
+--n 	<Leader>go 	outgoing calls
+--n 	gi 	implementation
+--n 	<Sapce> D 	type definition
+--n 	gL 	show line diagnostic
+--n 	gG 	show diagnostic for all buffers
+--n 	]d 	next diagnostic
+--n 	[d 	previous diagnostic
+--n 	]r 	next treesitter reference/usage
+--n 	[r 	previous treesitter reference/usage
+--n 	<Sapce> wa 	add workspace folder
+--n 	<Sapce> wr 	remove workspace folder
+--n 	<Sapce> wl 	print workspace folder
+--n 	<Leader>k 	toggle reference highlight
+--i/n 	<C-p> 	previous item in list
+--i/n 	<C-n> 	next item in list
+--i/n 	number 1~9 	move to ith row/item in the list
+--i/n 	<Up> 	previous item in list
+--i/n 	<Down> 	next item in list
+--n 	<Ctrl-w>j 	move cursor to preview (windows move to bottom view point)
+--n 	<Ctrl-w>k 	move cursor to list (windows move to up view point)
+--i/n 	<C-o> 	open preview file in nvim/Apply action
+--n 	<C-v> 	open preview file in nvim with vsplit
+--n 	<C-s> 	open preview file in nvim with split
+--n 	<Enter> 	open preview file in nvim/Apply action
+--i/n 	<C-b> 	previous page in listview
+--i/n 	<C-f> 	next page in listview
+--i/n 	<C-s> 	save the modification to preview window to file
