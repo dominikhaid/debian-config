@@ -16,9 +16,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb' 
 
-Plug 'Raimondi/delimitMate'
-Plug 'dense-analysis/ale'
-
 " Format and Visual
 Plug 'Yggdroot/indentLine'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -32,20 +29,9 @@ Plug 'vim-scripts/grep.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Editor 
-Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'voldikss/vim-floaterm'
 Plug 'godlygeek/tabular'
-Plug 'vim-scripts/CSApprox'
 Plug 'ryanoasis/vim-devicons'
-Plug 'easymotion/vim-easymotion'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-
-" Code Managment
-Plug 'tpope/vim-surround'
-Plug 'codota/tabnine-vim'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'terryma/vim-expand-region'
 
 " Terminal
 Plug 'Shougo/vimproc.vim', {'do': g:make}
