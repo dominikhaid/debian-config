@@ -209,13 +209,13 @@ vim.api.nvim_set_keymap("v", "crm", '<Esc><Cmd>lua require("jdtls").extract_meth
 
 -- If using nvim-dap
 -- This requires java-debug and vscode-java-test bundles, see install steps in this README further below.
-vim.api.nvim_set_keymap("n", "<leader>dm", "<Cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dsj", "<Cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dt", '<Cmd>lua require("dapui").toggle()<CR>', opts)
 vim.api.nvim_set_keymap("n", "<leader>dtn", '<Cmd>lua require"jdtls".test_nearest_method()<CR>', opts)
 
 --lua debug
 --
-vim.api.nvim_set_keymap("n", "<leader>dl", "<Cmd>lua require'osv'.run_this()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dsl", "<Cmd>lua require'osv'.run_this()<CR>", opts)
 
 --debug Telescope
 --
