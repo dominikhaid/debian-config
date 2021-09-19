@@ -2,7 +2,6 @@ vim.cmd "source $HOME/.config/nvim/vimrc"
 
 local fn = vim.fn
 local execute = vim.api.nvim_command
-local home = os.getenv("HOME")
 
 -- Auto install packer.nvim if not exists
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -35,7 +34,6 @@ if fn.empty(fn.glob(install_path)) == 0 then
     "dockerfile",
     "go",
     "html",
-    "java",
     "json",
     "lua",
     "php",
@@ -91,13 +89,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
   if lockPlugs == false then
     -- Config
     require "config"
-
     require("bufferline").setup {}
-
-    vim.api.nvim_command("augroup lsp")
-    vim.api.nvim_command("au!")
-    vim.api.nvim_command("au FileType java lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}})")
-    vim.api.nvim_command("augroup end")
 
     -- Debug
     require "dap.init"
