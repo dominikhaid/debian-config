@@ -17,6 +17,8 @@ GRADLE_HOME=$GRADLE_HOME "$JAVA_HOME/bin/java" \
 	-Dlog.level=ALL \
 	-Xms1g \
 	-Xmx2G \
+	-javaagent:"$HOME/dev/java/jars/plugins/lombok.jar" \
+	-Xbootclasspath/a:"$HOME/dev/java/plugins/lombok.jar" \
 	-jar $(echo "$JAR") \
 	-configuration "$HOME/dev/java/jars/eclipse/config_linux" \
 	-data "${1:-$HOME/dev/java/.cache}" \
