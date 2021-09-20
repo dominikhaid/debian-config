@@ -24,19 +24,19 @@ utils.map("n", "<leader>gb", ":Git blame<CR>", {noremap = true})
 utils.map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", {noremap = true})
 --utils.map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", {noremap = true})
 utils.map("n", "<leader>gr", "<cmd>Telescope repo list<cr>", {noremap = true})
---vim.api.nvim_set_keymap(
---"n",
---"<leader>gs",
---":FloatermNew --height=1.0 --width=1.0 --wintype=float --autoclose=2 lazygit<CR>",
---{noremap = true, silent = true}
---)
-
 vim.api.nvim_set_keymap(
   "n",
   "<leader>gs",
-  "<cmd>lua require('lspsaga.floaterm').open_float_terminal('lazygit')<CR>",
+  ":FloatermNew --height=1.0 --width=1.0 --wintype=float --autoclose=2 lazygit<CR>",
   {noremap = true, silent = true}
 )
+
+--vim.api.nvim_set_keymap(
+--"n",
+--"<leader>gs",
+--"<cmd>lua require('lspsaga.floaterm').open_float_terminal('lazygit')<CR>",
+--{noremap = true, silent = true}
+--)
 
 utils.map("n", "<leader>gph", ":Git push<CR>", {noremap = true})
 utils.map("n", "<leader>gpl", ":Git pull<CR>", {noremap = true})
