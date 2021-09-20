@@ -20,7 +20,7 @@ vim.api.nvim_set_keymap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", 
 
 --Lsp Symbols
 --vim.api.nvim_set_keymap("n", "g0", "<cmd>:SymbolsOutline<CR>", opts)
---vim.api.nvim_set_keymap("n", "g0", "<cmd>:Telescope lsp_document_symbols<CR>", opts)
+vim.api.nvim_set_keymap("n", "g0", "<cmd>:Telescope lsp_document_symbols<CR>", opts)
 
 --LSP SAGA
 --vim.api.nvim_set_keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)

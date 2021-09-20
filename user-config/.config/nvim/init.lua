@@ -26,7 +26,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
   require "themes"
 
   -- LSP
-  require "lsp"
+  require "lsp.init"
 
   local required_server = {
     "bash",
