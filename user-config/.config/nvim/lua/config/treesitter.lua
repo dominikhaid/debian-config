@@ -24,6 +24,7 @@ require "nvim-treesitter.configs".setup {
     "graphql",
     "java",
     "python",
+    "dart",
     "lua",
     "rust",
     "typescript",
