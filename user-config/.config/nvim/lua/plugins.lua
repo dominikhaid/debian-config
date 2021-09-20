@@ -55,6 +55,10 @@ return require("packer").startup(
     use {"nvim-telescope/telescope-dap.nvim"}
 
     --
+    -- Flutter
+    use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
+
+    --
     --Snippets
     use {"neovim/nvim-lspconfig"}
     use {"tjdevries/nlua.nvim"}
