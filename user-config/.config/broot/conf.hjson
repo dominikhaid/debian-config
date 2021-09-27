@@ -175,7 +175,7 @@
 			invocation: copy_file_content
 			shortcut: cpfc
 			execution: "xclip -sel clip {file}"
-			from_shell: true
+            leave_broot: false
 		}
 		{
 			invocation: copy_dir
@@ -186,20 +186,20 @@
 		{
 			invocation: copy_file
 			shortcut: cpf
-			execution: "echo {file} | xclip -selection clipboard"
-            from_shell: true
+			external: "echo {file} | xclip -selection clipboard"
+			from_shell: true
 		}
 		{
 			invocation: copy_rfile
 			shortcut: cprf
-			execution: "echo {file} | sd '.*('$PWD')' '' |  xclip -selection clipboard"
-            from_shell: true
+			external: "echo {file} | sd '.*('$PWD')' '' |  xclip -selection clipboard"
+			from_shell: true
 		}
 		{
 			invocation: copy_rdir
 			shortcut: cprd
-			execution: "echo {directory} | sd '.*('$PWD')' '' |  xcliip -selection clipboard"
-            from_shell: true
+			external: "echo {directory} | sd '.*('$PWD')' '' |  xcliip -selection clipboard"
+			from_shell: true
 		}
 
 
