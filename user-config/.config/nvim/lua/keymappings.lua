@@ -1,7 +1,11 @@
 local utils = require("utils")
 utils.map("n", "<C-l>", "<cmd>noh<CR>") -- Clear highlights
 utils.map("i", "jk", "<Esc>") -- jk to escape
-
+utils.map("n", "<leader>L", "<cmd>wincmd L<CR>") -- move window
+utils.map("n", "<leader>H", "<cmd>wincmd H<CR>") -- move window
+utils.map("n", "<leader>K", "<cmd>wincmd K<CR>") -- move window
+utils.map("n", "<leader>J", "<cmd>wincmd J<CR>") -- move window
+utils.map("n", "<leader>T", "<cmd>wincmd T<CR>") -- move window
 -- Clap
 utils.map("n", "<Leader>fh", "<cmd>Clap history<cr>")
 utils.map("n", "<Leader>fhc", "<cmd>Clap command_history<cr>")
@@ -52,9 +56,11 @@ utils.map("n", "<leader>md", ":Glow<CR>", {noremap = true})
 
 --Telescope
 utils.map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {noremap = true})
+utils.map("n", "<leader>fb", "<cmd>Telescope file_browser<cr>", {noremap = true})
+utils.map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", {noremap = true})
 utils.map("n", "<Leader>fc", "<cmd>Telescope commands<cr>")
 utils.map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {noremap = true})
-utils.map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {noremap = true})
+utils.map("n", "<leader>b", "<cmd>Telescope buffers<cr>", {noremap = true})
 utils.map("n", "<leader>fm", "<cmd>Telescope media_files<cr>", {noremap = true})
 --utils.map("n", "<leader>fh", "<cmd>Cheatsheet<cr>", {noremap = true})
 utils.map("n", "<leader>fn", "<cmd>Telescope node_modules list<cr>", {noremap = true})
@@ -151,6 +157,13 @@ utils.map("n", "N", "Nzzzv", {noremap = true})
 -- clean search (highlight)
 utils.map("n", "<leader><space>", ":noh<cr>", {noremap = true})
 utils.map("n", "<leader>.", ":lcd %:p:h<CR>", {noremap = true})
+utils.map("n", "<space>cp", ":cprev<CR>", {noremap = true})
+utils.map("n", "<space>cn", ":cnext<CR>", {noremap = true})
+utils.map("n", "<space>lp", ":lprev<CR>", {noremap = true})
+utils.map("n", "<space>ln", ":lnext<CR>", {noremap = true})
+utils.map("n", "<space>qf", ":Telescope quickfix<CR>", {noremap = true})
+utils.map("n", "<space>lf", ":Telescope loclist<CR>", {noremap = true})
+utils.map("n", "<leader>q", ":q<CR>", {noremap = true})
 
 -- Vmap for maintain Visual Mode after shifting > and <
 utils.map("v", "<", "<gv", {noremap = true})
