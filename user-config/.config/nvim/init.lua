@@ -88,6 +88,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
 
   if lockPlugs == false then
     -- Config
+    require("gitsigns").setup()
     require "config"
     require("bufferline").setup {}
 
@@ -116,8 +117,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     require("colors")
 
     -- Rest
-    require("rest-nvim").setup({result_split_horizontal = false, skip_ssl_verification = false})
-
+    require("rest-nvim").setup()
     -- Which Key
     require("which-key").setup({})
   end
