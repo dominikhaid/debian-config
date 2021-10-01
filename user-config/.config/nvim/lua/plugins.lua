@@ -21,7 +21,7 @@ return require("packer").startup(
     --
     --LSP
     use {"ray-x/navigator.lua", requires = {"ray-x/guihua.lua", run = "cd lua/fzy && make"}}
-    use "simrat39/symbols-outline.nvim"
+    --use "simrat39/symbols-outline.nvim"
     use {"ojroques/nvim-lspfuzzy"}
     --use {"glepnir/lspsaga.nvim"}
     --use {"RishabhRD/nvim-lsputils"}
@@ -35,7 +35,6 @@ return require("packer").startup(
     }
     use {"kkvh/vim-docker-tools"}
     use {"RishabhRD/popfix"}
-    --use {"glepnir/dashboard-nvim"}
     use {"mhinz/vim-startify"}
     use {"liuchengxu/vim-clap"}
     use {"wfxr/minimap.vim", run = ":!cargo install --force code-minimap"}
@@ -64,6 +63,9 @@ return require("packer").startup(
     use {"tjdevries/nlua.nvim"}
     use {"tzachar/compe-tabnine", requires = "hrsh7th/nvim-compe"}
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use "nvim-treesitter/nvim-treesitter-refactor"
+    use "nvim-treesitter/nvim-tree-docs"
+    use "nvim-treesitter/nvim-treesitter-textobjects"
     use {"mattn/emmet-vim"}
     use {"rafamadriz/friendly-snippets"}
     use {"L3MON4D3/LuaSnip"}
@@ -74,17 +76,16 @@ return require("packer").startup(
     --Git
     -- Packer
     use "sindrets/diffview.nvim"
-    use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim"}
+    --use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim"}
     use {"tpope/vim-fugitive"}
     use {"cljoly/telescope-repo.nvim"}
-    use {"junegunn/vim-github-dashboard"}
     use {"tpope/vim-rhubarb"}
-    use {"airblade/vim-gitgutter"}
+    use {"lewis6991/gitsigns.nvim"}
     --
     -- Misc
-    use {"tpope/vim-dispatch"}
+    --use {"tpope/vim-dispatch"}
     use {"vim-scripts/CSApprox"}
-    use {"xolox/vim-misc"}
+    --use {"xolox/vim-misc"}
     use {"xolox/vim-session"}
     use {
       "ellisonleao/glow.nvim",
@@ -108,16 +109,10 @@ return require("packer").startup(
     use {"scrooloose/nerdcommenter"}
     use {"mg979/vim-visual-multi"}
     use {"terryma/vim-expand-region"}
+    use {"xolox/vim-misc"}
     --
     --Motion
     use {"easymotion/vim-easymotion"}
     use {"tpope/vim-surround"}
-    --use {"Raimondi/delimitMate"}
-    --use {"junegunn/fzf.vim"}
-    --use {'nvim-lua/plenary.nvim'}
-    --use {'nvim-lua/popup.nvim'}
-    --use {'Shougo/vimproc.vim',opt=false, cmd='g:make'}
-    --use {'dpelle/vim-languagetool'}
-    --use {'puremourning/vimspector'}
   end
 )
