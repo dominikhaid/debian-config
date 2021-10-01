@@ -1,4 +1,6 @@
-# NVIM IDE
+# NVIM
+
+Nvim is a Termianl based text editor. The strenght of Nvim is its accessibility and ist super fast. Very input can be done using the keyboard only, but mouse is also supported. We use Nvim for more then just plain text editing, we have a highly optimized setup for development that can easly keep up with modern days IDE´s like VScode. Below you will find a detailed description of the components, plugins and key bindings we use.
 
 ## STARTIFY SPLASH SCREEN
 
@@ -37,34 +39,353 @@ Debugging is by default configrued for the following languages.
 All debug adapters are located in /lua/dap/w
 There is an additional configuration for Java in /lua/jdtls_setup.lua
 
-## Rest / Http
+## REST / HTTP
 
 A http client is integrated, for further instructions visit [link](https://github.com/NTBBloodbath/rest.nvim)
 
-## Databse
+## DATABASE
 
 A Databse client is integrated, for further instructions visit [vim-dadbod](https://github.com/tpope/vim-dadbod) and [ui](https://github.com/kristijanhusak/vim-dadbod-ui). Keybindings are set as alway in /lua/keymappings.lua.
 
 ## KEYBINDINGS
 
-All Keybindings are located in /lua/keymappings.lua
+All Keybindings are located in /lua/keymappings.lua, blow you will find a list of the most common ones.
+
+### METAKEYS
+
+- Vim `<leader>`
+- Git `<leader>g`
+- Debug `<leader>d`
+- File `<leader>f`
+- Command `<leader>c`
+- Window `<leader>w`
+- Quickfix `<leader>q`
+- Loclist `<leader>l`
+- Code `<space>c` TODO
+- Database `<leader>b`
+- Rest `<leader>r`
+  **NOTE: leader is by default ,**
+
+### MOVEMENT
+
+- Move selection line up `v K`
+- Move selection line down `v J`
+- Jump `<leader>j`
+- Jump over Windoe `<leader>jw`
+- Jump to line `<leader>l`
+- Jump to sign `<leader>s`
+- Jump next fucntion start `]m`
+- Jump next class start `]]`
+- Jump next fucntion end `]M`
+- Jump next class end `][`
+- Jump previous function start `[m`
+- Jump previous class start `[[`
+- Jump previous function end `[M`
+- Jump previous class end `[]`
+
+### COPY & PASTE
+
+- Copy `y`
+- Copy selection to Clipboard `v y`
+- Copy line `yy`
+- Copy line to ClipBoard `YY`
+- Paste appending `p`
+- Paste prepanding `P`
+
+### SELECTION
+
+- Select inside `v i "`
+- Select outside `v a "`
+- Treesitter `gnn`
+- Node incremental `grn`
+- Scope incremental `grc`
+- Node decremental `grm`
+- Select inner function `if`
+- Select outer function `af`
+- Select outer class `ac`
+- Select class inner `ic`
+
+### EMMET
+
+- `div+div>p>span+em^bq`
+- `div>(header>ul>li*2>a)+footer>p`
+- `div#header+div.page+div#footer.class1.class2.class3`
+- `td[title="Hello world!" colspan=3]`
+- `ul>li.item$@-3*5`
+- `p>{Click }+a{here}+{ to continue}`
+
+[DOCS](https://docs.emmet.io/abbreviations/syntax/)
+
+### SURROUNDINGS
+
+- change '' to "" `cs'"`
+- change tag to "" `cst"`
+- remove "" `ds"`
+- selection `V S <p>`
+- word `ysiw"`
+- tag `ysi<p>`
+- line `yss)`
+
+### LSP
+
+- Go refrence `gr`
+- Go definition `gd`
+- Code actions `<space>ca`
+- Code Lens `<space>la`
+- Diagnostics Quickfix `<space>q`
+- Format `<space>f`
+- Type definition `<space>D`
+- Document symbol `g0`
+- Workspace Symbol `workspace symbol`
+- Go implementation `gi`
+- Rename `<space>rn`
+- Show definition `gp`
+- Signaturehelp `gs`
+- Hover doc `K`
+- Function outer `df`
+- Class outer `dF`
+
+### WORKSPACE
+
+- Split `<leader>h`
+- Split vertical `<leader>v`
+- Close buffer `<leader>q`
+- Broot `<leader>br`
+- File browser `<leader>b`
+- Arrange Windows `<leader>H/L/J/K`
+- Find buffer `<leader>fb`
+- Find files `<leader>ff`
+- File grep `<leader>fg`
+- Fles Media `<leader>fm`
+- Terminal `<leader>t`
+- CWD to file `<leader>.`
+- CWD to parent `<leader>..`
+
+### TELESCOPE
+
+- Open vertical `<C-v>`
+- Open horizontal `<C-s>`
+- Open tab `<C-t>`
+- Mark `tab`
+- Up Down `<C-n/p>`
+- Selection to Quickfix `<M-q>`
+- All to quickfix `<C-q>`
+- Scroll preview `<C-d/u`
+- Show Quickfix `<leader>qf`
+- Show loclist `<leader>lf`
+
+### NAVIGATOR
+
+- previous item in list `<C>p`
+- next item in list `<C>n`
+- move cursor to preview (windows move to bottom view point) `<Ctrl-w>j`
+- move cursor to list (windows move to up view point) `<Ctrl-w>k`
+- open preview file in nvim with vsplit `<C-v>`
+- open preview file in nvim with split `<C-s>`
+- previous page in listview `<C-b>`
+- next page in listview `<C-f>`
+- save the modification to preview window to file `<C-s>`
+
+### SNIPPETS
+
+1. Firendly-Snippets
+2. Tabnine
+3. LuaSnip
+4. Compe
+
+### GIT
+
+#### Basic
+
+- LazyGit `<leader>gl`
+- Git merge/diff `<leader>gm`
+- Git merge tool `<leader>gmt`
+- Git remove `<leader>grf`
+- Git Commits `<leader>gc`
+- Git blame `<leader>gb`
+- Git branch commits `<leader>gbc`
+- Git branch `<leader>gbr`
+- Git repos `<leader>gr`
+- Git status `<leader>gs`
+- Show file in browser `<leader>gbw`
+  **NOTE: Git repos is just a local search**
+
+#### Diffview
+
+- Git merge `<leader>gd`
+- Go file `gf`
+- Stage `-`
+- Stage all `S`
+- Unstage all `U`
+- Revert `X`
+- File history `gfh`
+- Show last commit `gdl`
+
+##### Hunks
+
+- Git go next hunk `]c`
+- Git go prev hunk `[c`
+- Git stage hunk `<leader>hs`
+- Git undo stage hunk `<leader>hu`
+- Git reset hunk `<leader>hr`
+- Git reset buffer `<leader>hR `
+- Git preview hunk `<leader>hp`
+- Git blame hunk `<leader>hb`
+- Git stage buffer `<leader>hS`
+- Git undo buffer `<leader>hU`
+
+### DEBUG
+
+- Add breakpont `<leader>db`
+- Start debbuger `<leader>ds`
+- Debug lua `<leader>dl`
+- Debug java `<leader>dj`
+- Debug Commands `<leader>dc`
+- Debug Variables `<leader>dv`
+- Debug Brealpoints `<leader>db`
+- Debug Ui `<leader>dt`
+- Debug REPL open `<leader>do`
+- Debug step over `<leader>dso`
+- Debug step into `<leader>dsi`
+
+### DATABASE
+
+- DB Ui `<leader>bu`
+- DB Find `<leader>bf`
+- DB Rename `<leader>brr`
+- DB LastQuery `<leader>bl`
+
+### REST
+
+- Run http `<leader>r`
+- Run Preview `<leader>rp`
+- Run Last `<leader>rl`
+
+### DOCKER
+
+- Show docker panel `<leader>d`
 
 ## PLUGINS
 
 Plugins are in Packer format, they are located in /lua/plugins.lua
-Install all plugins can be done withe :PackerInstall, for updateing all plugins use :PackerUpdate.
+Install all plugins can be done withe :PackerInstall, for updateing all plugins use :PackerUpdate. Below a list of the plugins we use right now. They all can be found on Github.
 
-## Settings
+### Utils
+
+    - wbthomason/packer.nvim
+    - sudormrfbin/cheatsheet.nvim
+    - folke/which-key.nvim
+    - ojroques/nvim-lspfuzzy
+    - kabouzeid/nvim-lspinstall
+    - neovim/nvim-lspconfig
+    - tjdevries/nlua.nvim
+    - vim-scripts/CSApprox
+    - xolox/vim-session
+
+#### Scratchpad
+
+    - metakirby5/codi.vim
+
+### Ui
+
+    - liuchengxu/vim-clap
+    - hoob3rt/lualine.nvim
+    - RishabhRD/popfix
+    - mhinz/vim-startify
+    - fussenegger/nvim-fz
+    - akinsho/nvim-bufferline.lua
+    - wfxr/minimap.vim
+    - nvim-telescope/telescope.nvim
+    - nvim-lua/popup.nvim
+    - nvim-lua/plenary.nvim
+
+### Workspace / Movement / Selection
+
+    - terryma/vim-expand-region
+    - mg979/vim-visual-multi
+    - scrooloose/nerdcommenter
+    - easymotion/vim-easymotion
+    - pope/vim-surround
+    - voldikss/vim-floaterm
+
+### Icons
+
+    - ryanoasis/vim-devicons
+    - kyazdani42/nvim-web-devicons
+
+### Markdown
+
+    - ellisonleao/glow.nvim
+
+### Rest
+
+    - NTBBloodbath/rest.nvim
+
+### Database
+
+    - kristijanhusak/vim-dadbod-ui
+    - tpope/vim-dadbod
+
+### Lsp & Coding Helps
+
+    - mattn/emmet-vim
+    - cohama/lexima.vim
+    - mhartington/formatter.nvim
+    - ray-x/navigator.lua
+    - ray-x/guihua.lua
+    - nvim-treesitter/nvim-treesitter
+    - simrat39/symbols-outline.nvim
+
+### Files
+
+    - nvim-telescope/telescope-media-files.nvim
+    - nvim-telescope/telescope-packer.nvim
+    - nvim-telescope/telescope-node-modules.nvim
+    - dhruvmanila/telescope-bookmarks.nvim
+
+### Docker
+
+    - kkvh/vim-docker-tools
+
+### Debug
+
+    - jbyuki/one-small-step-for-vimkind
+    - rcarriga/nvim-dap-ui
+    - mfussenegger/nvim-dap
+    - nvim-telescope/telescope-dap.nvim
+    - theHamsta/nvim-dap-virtual-text
+
+### Languages
+
+    - simrat39/rust-tools.nvim
+    - akinsho/flutter-tools.nvim
+    - fussenegger/nvim-jdtl
+
+### Snippets
+
+    - tzachar/compe-tabnine
+    - hrsh7th/nvim-compe
+    - rafamadriz/friendly-snippets
+    - L3MON4D3/LuaSnip
+
+### Git
+
+    - lewis6991/gitsigns.nvim
+    - sindrets/diffview.nvim
+    - tpope/vim-fugitive
+    - cljoly/telescope-repo.nvim
+    - tpope/vim-rhubarb
+
+## SETTINGS
 
 General Nvim settings belong to /lua/settings.lua
 
 ## TROUBLESHOOTING / DEPENDENCIES
 
-This Nvim setup is used to get install with our Debian Dev Environment install script.
-It can be found here all nessary dependencies will be installed through the script.
-Alternatively [here](https://github.com/dominikhaid/debian-install) is a list of things this setup depends on:
+This NVIM setup is used to get install with our Debian Dev Environment install script.
+It can be found [here](https://github.com/dominikhaid/debian-install).
 
-### Others
+### LSP Servers and other dependencies
 
 ```
 // Install LLVM TOOLS for Debian
