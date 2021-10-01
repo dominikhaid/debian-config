@@ -135,7 +135,6 @@ require "nvim-treesitter.configs".setup {
     "jsdoc",
     "yaml",
     "html",
-    "http",
     "scss"
   }
 }
