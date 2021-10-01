@@ -10,37 +10,34 @@ utils.map("n", "<leader>T", "<cmd>wincmd T<CR>") -- move window
 utils.map("n", "<Leader>fh", "<cmd>Clap history<cr>")
 utils.map("n", "<Leader>fhc", "<cmd>Clap command_history<cr>")
 
+local opts = {noremap = false, silent = true}
 -- Easy-motion
-utils.map("n", "<Leader>s", "<Plug>(easymotion-overwin-f2)")
-utils.map("v", "<Leader>l", "<Plug>(easymotion-bd-jk)")
-utils.map("n", "<Leader>l", "<Plug>(easymotion-overwin-line)")
-utils.map("v", "<Leader>w", "<Plug>(easymotion-bd-w)")
-utils.map("n", "<Leader>w", "<Plug>(easymotion-overwin-w)")
+vim.api.nvim_set_keymap("n", "<leader>s", "<Plug>(easymotion-overwin-f2)", opts)
+vim.api.nvim_set_keymap("n", "<leader>l", "<Plug>(easymotion-overwin-line)", opts)
+vim.api.nvim_set_keymap("n", "<leader>j", "<Plug>(easymotion-bd-e)", opts)
+vim.api.nvim_set_keymap("n", "<leader>jw", "<Plug>(easymotion-overwin-w)", opts)
+utils.map("n", "<leader>w", "")
 
+local opts = {noremap = true, silent = true}
 -- DOCKER
 utils.map("n", "<leader>d", "<cmd>DockerToolsToggle<CR>", {noremap = true})
 
---GI,
+--GIT
 utils.map("n", "<leader>gdl", ":DiffviewOpen HEAD~1 --cached<CR>", {noremap = true})
 utils.map("n", "<leader>gd", ":DiffviewOpen<CR>", {noremap = true})
+utils.map("n", "<leader>gfh", ":DiffviewFileHistory<CR>", {noremap = true})
 utils.map("n", "<leader>gb", ":Git blame<CR>", {noremap = true})
-
 utils.map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", {noremap = true})
---utils.map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", {noremap = true})
+utils.map("n", "<leader>gbr", "<cmd>Telescope git_branches<cr>", {noremap = true})
+utils.map("n", "<leader>gbc", "<cmd>Telescope git_bcommits<cr>", {noremap = true})
+utils.map("n", "<leader>gs", "<cmd>Telescope git_status<cr>", {noremap = true})
 utils.map("n", "<leader>gr", "<cmd>Telescope repo list<cr>", {noremap = true})
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>gs",
+  "<leader>gl",
   ":FloatermNew --height=1.0 --width=1.0 --wintype=float --autoclose=2 lazygit<CR>",
   {noremap = true, silent = true}
 )
-
---vim.api.nvim_set_keymap(
---"n",
---"<leader>gs",
---"<cmd>lua require('lspsaga.floaterm').open_float_terminal('lazygit')<CR>",
---{noremap = true, silent = true}
---)
 
 utils.map("n", "<leader>gph", ":Git push<CR>", {noremap = true})
 utils.map("n", "<leader>gpl", ":Git pull<CR>", {noremap = true})
@@ -56,11 +53,11 @@ utils.map("n", "<leader>md", ":Glow<CR>", {noremap = true})
 
 --Telescope
 utils.map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {noremap = true})
-utils.map("n", "<leader>fb", "<cmd>Telescope file_browser<cr>", {noremap = true})
+utils.map("n", "<leader>b", "<cmd>Telescope file_browser<cr>", {noremap = true})
 utils.map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", {noremap = true})
 utils.map("n", "<Leader>fc", "<cmd>Telescope commands<cr>")
 utils.map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {noremap = true})
-utils.map("n", "<leader>b", "<cmd>Telescope buffers<cr>", {noremap = true})
+utils.map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {noremap = true})
 utils.map("n", "<leader>fm", "<cmd>Telescope media_files<cr>", {noremap = true})
 --utils.map("n", "<leader>fh", "<cmd>Cheatsheet<cr>", {noremap = true})
 utils.map("n", "<leader>fn", "<cmd>Telescope node_modules list<cr>", {noremap = true})
@@ -100,23 +97,12 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>f",
+  "<leader>br",
   ":FloatermNew --height=1.0 --width=1.0 --wintype=float --autoclose=2 broot -sdph<CR>",
   {noremap = true, silent = true}
 )
 
 --  EDITOR
--- wirte quite
---utils.map('c',  'W! w!',        {noremap=true})
---utils.map('c',  'Q! q!',        {noremap=true})
---utils.map('c',  'Qall! qall!',  {noremap=true})
---utils.map('c',  'Wq wq',        {noremap=true})
---utils.map('c',  'Wa wa',        {noremap=true})
---utils.map('c',  'wQ wq',        {noremap=true})
---utils.map('c',  'WQ wq',        {noremap=true})
---utils.map('c',  'W w ',         {noremap=true})
---utils.map('c',  'Q q ',         {noremap=true})
---utils.map('c',  'Qall qall',    {noremap=true})
 utils.map("c", "w!!", 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', {noremap = true})
 
 -- Split
@@ -142,9 +128,9 @@ utils.map("n", "<C-h>", "<C-w>h", {noremap = true})
 
 -- BUFFERS
 -- buffer nav
-utils.map("n", "<leader>p", ":bp<CR>", {noremap = true})
-utils.map("n", "<leader>n", ":bn<CR>", {noremap = true})
-utils.map("n", "<leader>c", ":bd<CR>", {noremap = true})
+--utils.map("n", "<leader>p", ":bp<CR>", {noremap = true})
+--utils.map("n", "<leader>n", ":bn<CR>", {noremap = true})
+--utils.map("n", "<leader>c", ":bd<CR>", {noremap = true})
 
 -- hide show line numbers
 utils.map("n", "<leader><", ":set number relativenumber<CR>", {noremap = true})
@@ -157,13 +143,14 @@ utils.map("n", "N", "Nzzzv", {noremap = true})
 -- clean search (highlight)
 utils.map("n", "<leader><space>", ":noh<cr>", {noremap = true})
 utils.map("n", "<leader>.", ":lcd %:p:h<CR>", {noremap = true})
+utils.map("n", "<leader>.", ":lcd ..<CR>", {noremap = true})
 utils.map("n", "<space>cp", ":cprev<CR>", {noremap = true})
 utils.map("n", "<space>cn", ":cnext<CR>", {noremap = true})
 utils.map("n", "<space>lp", ":lprev<CR>", {noremap = true})
 utils.map("n", "<space>ln", ":lnext<CR>", {noremap = true})
 utils.map("n", "<space>qf", ":Telescope quickfix<CR>", {noremap = true})
 utils.map("n", "<space>lf", ":Telescope loclist<CR>", {noremap = true})
-utils.map("n", "<leader>q", ":q<CR>", {noremap = true})
+utils.map("n", "<leader>q", ":bd<CR>", {noremap = true})
 
 -- Vmap for maintain Visual Mode after shifting > and <
 utils.map("v", "<", "<gv", {noremap = true})
@@ -196,15 +183,12 @@ vim.api.nvim_set_keymap("i", "<c-q", "compe#close()", {noremap = true, silent = 
 --Minimap
 vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>Minimap<CR>", {silent = true, noremap = true})
 
-local opts = {noremap = true, silent = true}
-
 -- Debug
-vim.api.nvim_set_keymap("n", "<leader>da", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>ds", "<cmd>lua require'dap'.continue()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>do", "<cmd>lua require'dap'.repl.open()<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>dt", "<cmd>lua require('dapui').toggle()<CR>", opts)
 
 -- `code_action` is a superset of vim.lsp.buf.code_action and you'll be able to
 -- use this mapping also with other language servers
@@ -222,13 +206,13 @@ vim.api.nvim_set_keymap("v", "crm", '<Esc><Cmd>lua require("jdtls").extract_meth
 
 -- If using nvim-dap
 -- This requires java-debug and vscode-java-test bundles, see install steps in this README further below.
-vim.api.nvim_set_keymap("n", "<leader>dsj", "<Cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dj", "<Cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dt", '<Cmd>lua require("dapui").toggle()<CR>', opts)
-vim.api.nvim_set_keymap("n", "<leader>dtn", '<Cmd>lua require"jdtls".test_nearest_method()<CR>', opts)
+vim.api.nvim_set_keymap("n", "<leader>djn", '<Cmd>lua require"jdtls".test_nearest_method()<CR>', opts)
 
 --lua debug
 --
-vim.api.nvim_set_keymap("n", "<leader>dsl", "<Cmd>lua require'osv'.run_this()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dl", "<Cmd>lua require'osv'.run_this()<CR>", opts)
 
 --debug Telescope
 --
@@ -238,7 +222,13 @@ vim.api.nvim_set_keymap("n", "<leader>db", "<Cmd>:Telescope dap list_breakpoints
 
 -- db
 --
-vim.api.nvim_set_keymap("n", "<leader>du", ":DBUIToggle<CR> ", opts)
-vim.api.nvim_set_keymap("n", "<leader>df", ":DBUIFindBuffer<CR> ", opts)
-vim.api.nvim_set_keymap("n", "<leader>dr", ":DBUIRenameBuffer<CR> ", opts)
-vim.api.nvim_set_keymap("n", "<leader>dl", ":DBUILastQueryInfo<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>bu", ":DBUIToggle<CR> ", opts)
+vim.api.nvim_set_keymap("n", "<leader>bf", ":DBUIFindBuffer<CR> ", opts)
+vim.api.nvim_set_keymap("n", "<leader>brr", ":DBUIRenameBuffer<CR> ", opts)
+vim.api.nvim_set_keymap("n", "<leader>bl", ":DBUILastQueryInfo<CR>", opts)
+
+--REST
+--
+vim.api.nvim_set_keymap("n", "<leader>r", "<Cmd>lua require('rest-nvim').run()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>rp", "<Cmd>lua require('rest-nvim').run(true)<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>rl", "<Cmd>lua require('rest-nvim').last()<CR>", opts)
