@@ -66,6 +66,18 @@ All Keybindings are located in /lua/keymappings.lua, blow you will find a list o
 - Rest `<leader>r`
   **NOTE: leader is by default ,**
 
+### Folding
+
+- Unfold all file `zR`
+- Fold all file `zM`
+- Unfold all selection `zC`
+- Toggle fold selection `za`
+- Toggle fold selection `zA`
+- Open fold selection `zo`
+- Open fold all selection `zO`
+- Close fold selection `zC`
+- Close all fold selection `zc`
+
 ### MOVEMENT
 
 - Move selection line up `v K`
