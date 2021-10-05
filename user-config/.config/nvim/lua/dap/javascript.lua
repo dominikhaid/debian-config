@@ -10,7 +10,7 @@ dap.configurations.javascript = {
   {
     type = "node2",
     request = "launch",
-    program = "${file}",
+    program = "${workspaceFolder}/${file}",
     cwd = vim.fn.getcwd(),
     sourceMaps = true,
     protocol = "inspector",

@@ -1,1 +1,6 @@
 nvim/plugin
+
+user-config/.config/nvim/plugin/packer_compiled.lua
+user-config/.config/qtile/__pycache__
+
+user-config/.config/nvim/tmp.http

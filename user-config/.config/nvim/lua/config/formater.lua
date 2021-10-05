@@ -2,7 +2,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.rs,*.go,*.java,*.rs,*.sh,*.lua,*.css,*.ts,*.php,*.tsx,*.jsx,*.md, FormatWrite
+  autocmd BufWritePost *.js,*.json,*.rs,*.go,*.java,*.rs,*.sh,*.lua,*.css,*.ts,*.php,*.tsx,*.jsx,*.md,*.html,*.scss FormatWrite
 augroup END
 ]],
   true
@@ -73,6 +73,26 @@ require("formatter").setup(
         end
       },
       css = {
+        -- prettier
+        function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      less = {
+        -- prettier
+        function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      scss = {
         -- prettier
         function()
           return {

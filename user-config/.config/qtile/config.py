@@ -81,7 +81,7 @@ keys = [
         Key([mod], "Tab", lazy.spawn("rofi -show window")),
         Key([mod], "s", lazy.spawn("rofi -show ssh")),
         Key([mod], "r", lazy.spawn("rofi -show drun")),
-        Key([mod], "a", lazy.spawn("/usr/local/bin/rofimoji")),
+        Key([mod], "a", lazy.spawn(home_folder+"/.local/bin/rofimoji")),
         Key([mod], "f", lazy.spawn("rofi  -show find -modi find:~/.config/rofi/finder.sh")),
         Key([mod], "o", lazy.spawn(".config/rofi/rofi-configmenu.sh")),
         

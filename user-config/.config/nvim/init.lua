@@ -2,7 +2,6 @@ vim.cmd "source $HOME/.config/nvim/vimrc"
 
 local fn = vim.fn
 local execute = vim.api.nvim_command
-local home = os.getenv("HOME")
 
 -- Auto install packer.nvim if not exists
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -27,7 +26,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
   require "themes"
 
   -- LSP
-  require "lsp"
+  require "lsp.init"
 
   local required_server = {
     "bash",
@@ -35,7 +34,6 @@ if fn.empty(fn.glob(install_path)) == 0 then
     "dockerfile",
     "go",
     "html",
-    "java",
     "json",
     "lua",
     "php",
@@ -48,10 +46,6 @@ if fn.empty(fn.glob(install_path)) == 0 then
   }
 
   local servers = require "lspinstall".installed_servers()
-
-  local function isEmpty(s)
-    return s == nil or s == ""
-  end
 
   local function findInArray(set, key)
     for a, b in pairs(set) do
@@ -94,14 +88,9 @@ if fn.empty(fn.glob(install_path)) == 0 then
 
   if lockPlugs == false then
     -- Config
+    require("gitsigns").setup()
     require "config"
-
     require("bufferline").setup {}
-
-    vim.api.nvim_command("augroup lsp")
-    vim.api.nvim_command("au!")
-    vim.api.nvim_command("au FileType java lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}})")
-    vim.api.nvim_command("augroup end")
 
     -- Debug
     require "dap.init"
@@ -128,8 +117,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     require("colors")
 
     -- Rest
-    require("rest-nvim").setup({result_split_horizontal = false, skip_ssl_verification = false})
-
+    require("rest-nvim").setup()
     -- Which Key
     require("which-key").setup({})
   end
