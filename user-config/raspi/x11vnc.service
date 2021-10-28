@@ -1,0 +1,16 @@
+#vim /etc/systemd/system/x11vnc.service
+
+[Unit]
+Description="x11vnc"
+Requires=display-manager.service
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/x11vnc -loop -nopw -xkb -repeat -noxrecord -noxfixes -noxdamage -forever -rfbport 5900 -display :0
+ExecStop=/usr/bin/killall x11vnc
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target 
+
