@@ -19,7 +19,7 @@
  *
  */
 
-@import "~/.cache/wal/colors-rofi-dark"
+@import "~/.cache/wal/colors-rofi-light"
 
 * {
   accent:           @active-background;

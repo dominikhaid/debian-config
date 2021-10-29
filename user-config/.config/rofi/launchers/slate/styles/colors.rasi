@@ -9,7 +9,7 @@
  *
  */
 
-@import "~/.cache/wal/colors-rofi-dark"
+@import "~/.cache/wal/colors-rofi-light"
 
 
 /*@import "Blue.rasi"*/

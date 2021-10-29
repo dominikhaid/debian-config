@@ -1,2 +1,2 @@
 /*Dracula theme based on the Purple official rofi theme*/
-@import "~/.cache/wal/colors-rofi-dark"
+@import "~/.cache/wal/colors-rofi-light"
