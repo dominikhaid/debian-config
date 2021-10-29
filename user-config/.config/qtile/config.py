@@ -23,7 +23,9 @@ keys = [
         Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
         Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
         Key([mod], "n", lazy.layout.normalize()),
-        Key([mod], "o", lazy.layout.maximize()),
+        Key([mod], "m", lazy.layout.maximize()),
+        Key([mod], "comma", lazy.next_layout()),
+        Key([mod], "b", lazy.window.toggle_floating()),
         # Key([mod], 'r', lazy.spawncmd()),
         Key(
             [mod, "shift"],
@@ -46,11 +48,11 @@ keys = [
         #   desc='Keyboard focus to monitor 3'
         #   ),
         ### Switch focus of monitors
+        # Key([mod], "period",
+            # lazy.next_screen(),
+            # desc='Move focus to next monitor'
+            # ),
         Key([mod], "period",
-            lazy.next_screen(),
-            desc='Move focus to next monitor'
-            ),
-        Key([mod], "comma",
             lazy.prev_screen(),
             desc='Move focus to prev monitor'
             ),
@@ -61,7 +63,7 @@ keys = [
 
         # Spec hotkeys
         Key([mod, "control"], "r", lazy.restart()),
-        Key([mod, "control"], "c", lazy.spawncmd()),
+        Key([mod, "control"], "Return", lazy.spawncmd()),
         #Key([mod, "control"], "q", lazy.shutdown()),
         
         # Apps hotkeys
@@ -69,8 +71,6 @@ keys = [
         # Key([mod], "w", lazy.spawn("firefox")),
         # Key([mod, "shift"], "w", lazy.spawn("firefox-dev -P default")),
         # Key([mod], "e", lazy.spawn("pcmanfm")),
-        # Key([mod], "m", lazy.spawn("flatpak run com.spotify.Client")),
-        # Key([mod], "p", lazy.spawn("flatpak run com.bitwarden.desktop")),
         
         # ROFI DMENU
         # Key([mod, "control"], "s", lazy.spawn(".config/rofi/bin/web-search.sh")),
@@ -99,7 +99,7 @@ keys = [
         Key([], "XF86AudioRaiseVolume", lazy.spawn("pulseaudio-ctl up 5")),
         Key([], "XF86AudioLowerVolume", lazy.spawn("pulseaudio-ctl down 5")),
         Key([], "XF86AudioMute", lazy.spawn("pulseaudio-ctl set 1")),
-            Key([mod, "control"], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
+        Key([mod, "control"], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
 ]
 
 
@@ -200,9 +200,9 @@ layouts = [
         layout.Zoomy(**layout_theme),
         layout.VerticalTile(**layout_theme),
         layout.MonadTall(shift_windows=True, **layout_theme),
-        layout.Max(**layout_theme),
-        layout.Tile(shift_windows=True, **layout_theme),
-        layout.Stack(num_stacks=2),
+        # layout.Max(**layout_theme),
+        # layout.Tile(shift_windows=True, **layout_theme),
+        # layout.Stack(num_stacks=2),
         layout.TreeTab(
             font="Fira Code",
             fontsize=14,
@@ -216,7 +216,7 @@ layouts = [
             section_top=10,
             panel_width=250,
             ),
-        layout.Floating(**layout_theme),
+        # layout.Floating(**layout_theme),
         ]
 
 
