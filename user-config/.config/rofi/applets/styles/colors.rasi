@@ -20,4 +20,12 @@
  */
 
 @import "~/.cache/wal/colors-rofi-dark"
+
+* {
+  accent:           @active-background;
+  background-light: @selected-background;
+  on:               #5BB462;
+  off:              #DE635E;
+}
+
 /*@import "dark.rasi"*/

@@ -10,4 +10,6 @@
  */
 
 @import "~/.cache/wal/colors-rofi-dark"
+
+
 /*@import "Blue.rasi"*/
