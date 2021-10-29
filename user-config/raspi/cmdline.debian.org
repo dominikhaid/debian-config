@@ -1,0 +1,1 @@
+console=tty0 console=ttyS1,115200 root=/dev/sda2 rw fsck.repair=yes net.ifnames=0  rootwait 

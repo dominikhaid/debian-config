@@ -1,0 +1,28 @@
+#pcm.!default {
+#  type asym
+#  playback.pcm {
+#    type plug
+#    slave.pcm "output"
+#  }
+#  capture.pcm {
+#    type plug
+#    slave.pcm "input"
+#  }
+#}
+
+#pcm.output {
+#  type hw
+#  card 1
+#}
+
+#ctl.!default {
+#  type hw
+#  card 1
+#}
+#
+pcm.newdevice {
+    type softvol
+    slave.pcm "default"
+    control.name "Softmaster"
+    control.card  0
+}

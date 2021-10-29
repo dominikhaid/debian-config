@@ -143,7 +143,7 @@ utils.map("n", "N", "Nzzzv", {noremap = true})
 -- clean search (highlight)
 utils.map("n", "<leader><space>", ":noh<cr>", {noremap = true})
 utils.map("n", "<leader>.", ":lcd %:p:h<CR>", {noremap = true})
-utils.map("n", "<leader>.", ":lcd ..<CR>", {noremap = true})
+utils.map("n", "<leader>..", ":lcd ..<CR>", {noremap = true})
 utils.map("n", "<space>cp", ":cprev<CR>", {noremap = true})
 utils.map("n", "<space>cn", ":cnext<CR>", {noremap = true})
 utils.map("n", "<space>lp", ":lprev<CR>", {noremap = true})
@@ -186,9 +186,35 @@ vim.api.nvim_set_keymap("n", "<leader>m", "<cmd>Minimap<CR>", {silent = true, no
 -- Debug
 vim.api.nvim_set_keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>ds", "<cmd>lua require'dap'.continue()<CR>", opts)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>drp",
+  "<Cmd>lua require 'dap'.run(require 'dap'.configurations.javascriptAttach)<CR>",
+  opts
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>drc",
+  "<Cmd>lua require 'dap'.run(require 'dap'.configurations.javascriptChrome)<CR>",
+  opts
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>drn",
+  "<Cmd>lua require 'dap'.run(require 'dap'.configurations.javascriptNext)<CR>",
+  opts
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>drf",
+  "<Cmd>lua require 'dap'.run(require 'dap'.configurations.javascriptFirefox)<CR>",
+  opts
+)
+
 vim.api.nvim_set_keymap("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>do", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dk", "<cmd>lua require('dapui').eval()<CR>", opts)
 
 -- `code_action` is a superset of vim.lsp.buf.code_action and you'll be able to
 -- use this mapping also with other language servers
@@ -218,7 +244,7 @@ vim.api.nvim_set_keymap("n", "<leader>dl", "<Cmd>lua require'osv'.run_this()<CR>
 --
 vim.api.nvim_set_keymap("n", "<leader>dc", "<Cmd>:Telescope dap commands<CR>", opts)
 vim.api.nvim_set_keymap("n", "<leader>dv", "<Cmd>:Telescope dap variables<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>db", "<Cmd>:Telescope dap list_breakpoints<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dbl", "<Cmd>:Telescope dap list_breakpoints<CR>", opts)
 
 -- db
 --
