@@ -84,8 +84,6 @@ $music)
 	elif [[ -d /snap/spotify/53/usr/share/spotify ]]; then
 		/snap/spotify/53/usr/share/spotify/spotify &
 	else
-		/snap/spotify/53/usr/share/spotify/spotify &
-		else
 		msg "No suitable music player found!"
 	fi
 	;;
