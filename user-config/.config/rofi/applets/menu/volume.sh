@@ -36,9 +36,9 @@ else
 fi
 
 ## Icons
-ICON_UP=""
-ICON_DOWN=""
-ICON_MUTED=""
+ICON_UP=""
+ICON_DOWN=""
+ICON_MUTED="婢"
 
 options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN"
 
