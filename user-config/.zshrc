@@ -61,7 +61,6 @@ antigen bundle pip
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen bundle zdharma/zsh-startify
 antigen bundle sinetoami/web-search
 #antigen bundle changyuheng/zsh-interactive-cd
 antigen bundle IngoMeyer441/zsh-easy-motion
@@ -255,4 +254,3 @@ set-wal() {
     br --only-folders --cmd "$1;:cd"
 }
 
-zsh-startify
