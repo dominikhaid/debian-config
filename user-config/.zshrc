@@ -2,6 +2,7 @@ ZSH_THEME="agnoster"
 ENABLE_CORRECTION="true"
 source "$HOME/.pathrc"
 export EDITOR=nvim
+source "$HOME/antigen.zsh"
 
 
 ### SET VI MODE ###
@@ -167,6 +168,7 @@ alias br='br -sdph'
 alias mv='mv -i' 	
 alias rm='rm -i' 	
 alias cp='cp -i' 
+#alias nvim='xdotool key Super_L+Shift_L+h && nvim'
 #alias grep='rg'
 #alias vifm='sudo vifm'
 #alias vi='nvim'
@@ -253,4 +255,5 @@ set-wal() {
  dcd() {
     br --only-folders --cmd "$1;:cd"
 }
+
 
