@@ -14,5 +14,4 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 source "$HOME/antigen.zsh"
 source /usr/share/autojump/autojump.sh
-source $HOME/.config/broot/launcher/bash/br
 export PATH="$PATH:$HOME/dev/flutter/bin"
