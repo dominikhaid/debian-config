@@ -32,6 +32,15 @@ nnoremap <silent><leader>t :terminal<CR>
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
+noremap <Leader>+ :exe vertical resize +5<CR>
+noremap <Leader>- :exe vertical resize -5<CR>
+
+noremap YY +y<CR>
+noremap <leader>p +gP<CR>
+noremap XX +x<CR>
+
+
+
 ""  EDITOR
 
 "" wirte quite
@@ -70,14 +79,6 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
-
-"" BUFFERS
-"" buffer nav
-noremap <leader>p :bp<CR>
-noremap <leader>n :bn<CR>
-noremap <leader>c :bd<CR>
-"nnoremap <silent> <leader>b :Buffers<CR>
-
 "" grep
  nnoremap <silent> <leader>fg :Rgrep<CR>
 
@@ -110,14 +111,19 @@ vmap > >gv
 
 
 "" clipboard
-noremap YY "+y<CR>
+noremap YY +y<CR>
 "noremap <leader>p "+gP<CR>
-noremap XX "+x<CR>
+noremap XX +x<CR>
 
 "" WTF
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+
+map <leader>s <Plug>(easymotion-overwin-f2)
+map <leader>l <Plug>(easymotion-overwin-line)
+map <leader>j <Plug>(easymotion-bd-e)
+map <leader>jw <Plug>(easymotion-overwin-w)
 
 
 " session management
