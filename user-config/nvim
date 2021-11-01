@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xdotool key Super_L+Shift_L+h && $HOME/.local/share/nvim/bin/nvim
