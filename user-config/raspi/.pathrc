@@ -7,4 +7,3 @@ export TMPDIR="/tmp"
 export PATH=$PATH:$HOME/.local/bin
 source "$HOME/antigen.zsh"
 source /usr/share/autojump/autojump.sh
-source $HOME/.config/broot/launcher/bash/br
