@@ -105,23 +105,34 @@ keys = [
 
 # GROUPS
 #
-group_names = [
-        ("", {"layout": "monadtall"}),
-        ("", {"layout": "monadtall"}),
-        ("", {"layout": "monadtall"}),
-        ("", {"layout": "zoomy"}),
-        ("", {"layout": "zoomy"}),
-        ("", {"layout": "monadtall"}),
-        ("", {"layout": "verticaltile"}),
+workspaces = [
+        {"name":"","key": "h", "layout": "monadtall","matches":[Match(title=['nvim','code'])], "persist": True, "exclusive":False,"position":1,"init":True},
+        {"name":"", "key": "t","layout": "monadtall", "matches":[Match(wm_class=['kitty'])],"persist": False, "exclusive":True,"position":2,"init":False},
+        {"name" :"","key": "w", "layout": "monadtall", "matches":[Match(wm_class=['Firefox','google-chrome-stable','google-chrome'])], "exclusive":True,"persist": False,"position":3,"init":False},
+        {"name":"", "key": "e","layout": "zoomy", "matches":[Match(wm_class=['pcmanfm'])],"exclusive":True,"persist": False,"position":4,"init":False},
+        {"name":"", "key": "m","layout": "zoomy", "matches":[Match(wm_class=['Kodi','spotify','youtube'])],"exclusive":True,"persist": False,"position":5,"init":False},
+        {"name":"", "key": "d","layout": "monadtall","matches":[Match(wm_class=['dbeaver','pgadmin'])], "exclusive":False,"persist": False,"position":6,"init":False},
+        {"name":"", "key": "u","layout": "floating","exclusive":False,"persist": True,"position":7,"init":True},
         ]
 
-groups = [Group(name, **kwargs) for name, kwargs in group_names]
+groups = []
+def catch_windows(client):
+    return True
 
-for i, (name, kwargs) in enumerate(group_names, 1):
-    # Switch to another group
-    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))
-    # Send current window to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name)))
+for workspace in workspaces:
+    persist = workspace["persist"] if "persist" in workspace else None
+    init = workspace["init"] if "init" in workspace else None
+    position = workspace["position"] if "position" in workspace else None
+    exclusive = workspace["exclusive"] if "exclusive" in workspace else None
+    matches = workspace["matches"] if "matches" in workspace else None
+    layouts = workspace["layout"] if "layout" in workspace else None
+    if workspace["name"] == "":
+        groups.append(Group(workspace["name"], init=init, matches=[Match(func=catch_windows)], position=position, layout=layouts))
+    else:
+        groups.append(Group(workspace["name"], init=init, position=position, exclusive=exclusive, persist=persist, matches=matches, layout=layouts))
+
+    keys.append(Key([mod], workspace["key"], lazy.group[workspace["name"]].toscreen()))
+    keys.append(Key([mod, "shift"], workspace["key"], lazy.window.togroup(workspace["name"])))
 
 colors = []
 
@@ -189,6 +200,9 @@ layout_theme = {
         "border_normal": wg_bg,
         }
 
+
+
+
 layouts = [
         # layout.MonadWide(**layout_theme),
         # layout.Bsp(**layout_theme),
@@ -200,7 +214,7 @@ layouts = [
         layout.Zoomy(**layout_theme),
         layout.VerticalTile(**layout_theme),
         layout.MonadTall(shift_windows=True, **layout_theme),
-        # layout.Max(**layout_theme),
+        layout.Max(**layout_theme),
         # layout.Tile(shift_windows=True, **layout_theme),
         # layout.Stack(num_stacks=2),
         layout.TreeTab(
@@ -216,7 +230,7 @@ layouts = [
             section_top=10,
             panel_width=250,
             ),
-        # layout.Floating(**layout_theme),
+        layout.Floating(**layout_theme),
         ]
 
 
@@ -465,6 +479,26 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='kdenlive'),  # kdenlive
     Match(wm_class='pinentry-gtk-2'),  # GPG key password entry
     ])
+
+# When application launched automatically focus it's group
+
+@hook.subscribe.client_managed
+def show_window(window):
+    window.group.cmd_toscreen()
+
+# Hook to fallback to the first group with windows when last window of group is killed
+
+
+@hook.subscribe.client_killed
+def fallback(window):
+    if window.group.windows != [window]:
+        return
+    idx = qtile.groups.index(window.group)
+    for group in qtile.groups[idx - 1::-1]:
+        if group.windows:
+            qtile.current_screen.toggle_group(group)
+            return
+    qtile.current_screen.toggle_group(qtile.groups[0])
 
 
 @lazy.function
