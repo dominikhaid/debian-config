@@ -12,6 +12,5 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/Dokumente/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 source "$HOME/.sdkman/bin/sdkman-init.sh"
-source "$HOME/antigen.zsh"
 source /usr/share/autojump/autojump.sh
 export PATH="$PATH:$HOME/dev/flutter/bin"
