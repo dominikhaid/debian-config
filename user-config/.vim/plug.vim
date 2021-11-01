@@ -35,6 +35,9 @@ Plug 'ryanoasis/vim-devicons'
 
 " Terminal
 Plug 'Shougo/vimproc.vim', {'do': g:make}
+Plug 'terryma/vim-expand-region'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
 
 
 " Theme
