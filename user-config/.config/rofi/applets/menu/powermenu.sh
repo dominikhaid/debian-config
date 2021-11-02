@@ -82,11 +82,11 @@ $logout)
 		if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
 			openbox --exit
 		elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
-			kill -9 -1
-		elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
 			bspc quit
 		elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
 			i3-msg exit
+		else
+			kill -9 -1
 		fi
 	elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 		exit 0
