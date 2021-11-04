@@ -107,10 +107,10 @@ keys = [
 #
 workspaces = [
         {"name":"","key": "h", "layout": "monadtall","matches":[Match(title=['nvim','code'])], "persist": True, "exclusive":False,"position":1,"init":True},
-        {"name":"", "key": "t","layout": "monadtall", "matches":[Match(wm_class=['kitty'])],"persist": False, "exclusive":True,"position":2,"init":False},
-        {"name" :"","key": "w", "layout": "monadtall", "matches":[Match(wm_class=['Firefox','google-chrome-stable','google-chrome'])], "exclusive":True,"persist": False,"position":3,"init":False},
-        {"name":"", "key": "e","layout": "zoomy", "matches":[Match(wm_class=['pcmanfm'])],"exclusive":True,"persist": False,"position":4,"init":False},
-        {"name":"", "key": "m","layout": "zoomy", "matches":[Match(wm_class=['Kodi','spotify','youtube'])],"exclusive":True,"persist": False,"position":5,"init":False},
+        {"name":"", "key": "t","layout": "monadtall", "matches":[Match(wm_class=['kitty'])],"persist": False, "exclusive":False,"position":2,"init":False},
+        {"name" :"","key": "w", "layout": "monadtall", "matches":[Match(wm_class=['Firefox','google-chrome-stable','google-chrome'])], "exclusive":False,"persist": False,"position":3,"init":False},
+        {"name":"", "key": "e","layout": "zoomy", "matches":[Match(wm_class=['pcmanfm'])],"exclusive":False,"persist": False,"position":4,"init":False},
+        {"name":"", "key": "m","layout": "zoomy", "matches":[Match(wm_class=['Kodi','spotify','youtube'])],"exclusive":False,"persist": False,"position":5,"init":False},
         {"name":"", "key": "d","layout": "monadtall","matches":[Match(wm_class=['dbeaver','pgadmin'])], "exclusive":False,"persist": False,"position":6,"init":False},
         {"name":"", "key": "u","layout": "floating","exclusive":False,"persist": True,"position":7,"init":True},
         ]
@@ -333,7 +333,7 @@ def init_widgets_list():
                 foreground=white,
                 font="Fira Code Bold",
                 background=sys_bg,
-                configured_keyboards=['us','de']
+                configured_keyboards=['de','us']
                 ),
         widget.Systray(
                 font="Fira Code Bold",
@@ -482,9 +482,9 @@ floating_layout = layout.Floating(float_rules=[
 
 # When application launched automatically focus it's group
 
-@hook.subscribe.client_managed
-def show_window(window):
-    window.group.cmd_toscreen()
+# @hook.subscribe.client_managed
+# def show_window(window):
+    # window.group.cmd_toscreen()
 
 # Hook to fallback to the first group with windows when last window of group is killed
 
