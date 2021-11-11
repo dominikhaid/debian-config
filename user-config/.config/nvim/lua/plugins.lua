@@ -25,7 +25,7 @@ return require("packer").startup(
     use {"ojroques/nvim-lspfuzzy"}
     --use {"glepnir/lspsaga.nvim"}
     --use {"RishabhRD/nvim-lsputils"}
-    use {"kabouzeid/nvim-lspinstall"}
+    use "williamboman/nvim-lsp-installer"
 
     --
     --UI
@@ -61,7 +61,20 @@ return require("packer").startup(
     --Snippets
     use {"neovim/nvim-lspconfig"}
     use {"tjdevries/nlua.nvim"}
-    use {"tzachar/compe-tabnine", requires = "hrsh7th/nvim-compe"}
+    use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lsp-document-symbol"
+    use "saadparwaiz1/cmp_luasnip"
+    use {"tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp"}
+
+    use "onsails/lspkind-nvim"
+
+    -- Comparators
+    use "lukas-reineke/cmp-under-comparator"
+
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use "nvim-treesitter/nvim-treesitter-refactor"
     use "nvim-treesitter/nvim-tree-docs"
@@ -69,7 +82,6 @@ return require("packer").startup(
     use {"mattn/emmet-vim"}
     use {"rafamadriz/friendly-snippets"}
     use {"L3MON4D3/LuaSnip"}
-    use {"hrsh7th/nvim-compe"}
     use {"metakirby5/codi.vim"}
     use "mfussenegger/nvim-jdtls"
     --
