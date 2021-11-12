@@ -9,13 +9,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
 
-install_path = fn.stdpath("data") .. "/site/pack/packer/start/nvim-lspinstall"
+install_path = fn.stdpath("data") .. "/site/pack/packer/start/nvim-lsp-installer"
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute("!git clone https://github.com/kabouzeid/nvim-lspinstall " .. install_path)
+  execute("!git clone https://github.com/williamboman/nvim-lsp-installer " .. install_path)
 end
 
 vim.cmd [[packadd packer.nvim]]
-vim.cmd [[packadd nvim-lspinstall]]
+vim.cmd [[packadd nvim-lsp-installer]]
 vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
 
 -- Install plugins
@@ -29,24 +29,26 @@ if fn.empty(fn.glob(install_path)) == 0 then
   require "lsp.init"
 
   local required_server = {
-    "bash",
-    "css",
-    "dockerfile",
-    "go",
+    "bashls",
+    "cssls",
+    "dockerls",
+    "gopls",
+    "eslint",
     "html",
-    "json",
-    "lua",
-    "php",
-    "python",
-    "rust",
-    "tailwindcss",
-    "typescript",
-    "yaml",
+    "jsonls",
+    "sumneko_lua",
+    "intelephense",
+    "pylsp",
+    "rust_analyzer",
+    "sqls",
+    "tsserver",
+    "yamlls",
     "graphql"
   }
+ local logT =""
 
-  local servers = require "lspinstall".installed_servers()
-
+  local servers = require'nvim-lsp-installer.servers'.get_installed_server_names()
+  
   local function findInArray(set, key)
     for a, b in pairs(set) do
       if (b == key) then
@@ -70,7 +72,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     local langCount = 0
     for i, serv in pairs(required_server) do
       if langCount < 4 then
-        require "lspinstall".install_server(serv)
+        require'nvim-lsp-installer'.install(serv)
         langCount = langCount + 1
         required_server[i] = nil
       end
@@ -79,7 +81,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     langCount = 0
     for i, serv in pairs(required_server) do
       if langCount < 4 then
-        require "lspinstall".install_server(serv)
+        require'nvim-lsp-installer'.install(serv)
         langCount = langCount + 1
         required_server[i] = nil
       end
