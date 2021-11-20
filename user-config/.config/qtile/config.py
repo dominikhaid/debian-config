@@ -76,6 +76,7 @@ keys = [
         # Key([mod, "control"], "s", lazy.spawn(".config/rofi/bin/web-search.sh")),
         Key([mod], "g", lazy.spawn(".config/rofi/bin/github-repos.sh")),
         Key([mod,"control"], "s", lazy.spawn(".config/rofi/bin/menu_screenshot")),
+        Key([mod], "p", lazy.spawn(".config/rofi/bin/tizonia-run.sh")),
         Key([mod, "control"], "q", lazy.spawn(".config/rofi/bin/menu_powermenu")),
         Key([mod], "c", lazy.spawn("rofi  -show calc -modi calc:.config/rofi/bin/rofi-calc.sh")),
         Key([mod], "Tab", lazy.spawn("rofi -show window")),
