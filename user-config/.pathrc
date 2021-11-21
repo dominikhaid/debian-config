@@ -14,3 +14,4 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 source /usr/share/autojump/autojump.sh
 export PATH="$PATH:$HOME/dev/flutter/bin"
+export PYTHONPATH=/usr/lib/python3.9/site-packages
