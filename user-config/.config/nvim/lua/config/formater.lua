@@ -42,16 +42,16 @@ require("formatter").setup(
           }
         end
       },
-      --markdown = {
-        ---- prettier
-        --function()
-          --return {
-            --exe = "prettier",
-            --args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
-            --stdin = true
-          --}
-        --end
-      --},
+      markdown = {
+        -- prettier
+        function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
       javascriptreact = {
         -- prettier
         function()
@@ -168,6 +168,16 @@ require("formatter").setup(
           return {
             exe = "shfmt",
             args = {"-l", "-w"},
+            stdin = false
+          }
+        end
+      },
+      dart = {
+        -- format
+        function()
+          return {
+            exe = "flutter format",
+            --args = {"--fix", "--out", vim.api.nvim_buf_get_name(0)},
             stdin = false
           }
         end

@@ -16,15 +16,15 @@ myTerm = "kitty"
 
 keys = [
         # Layout hotkeys
-        Key([mod], "h", lazy.layout.shrink_main()),
-        Key([mod], "l", lazy.layout.grow_main()),
+        Key([mod], "comma", lazy.layout.shrink_main()),
+        Key([mod], "period", lazy.layout.grow_main()),
         Key([mod], "j", lazy.layout.down()),
         Key([mod], "k", lazy.layout.up()),
         Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
         Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
         Key([mod], "n", lazy.layout.normalize()),
         Key([mod], "m", lazy.layout.maximize()),
-        Key([mod], "comma", lazy.next_layout()),
+        Key([mod, "shift"], "comma", lazy.next_layout()),
         Key([mod], "b", lazy.window.toggle_floating()),
         # Key([mod], 'r', lazy.spawncmd()),
         Key(
@@ -52,7 +52,7 @@ keys = [
             # lazy.next_screen(),
             # desc='Move focus to next monitor'
             # ),
-        Key([mod], "period",
+        Key([mod, "shift"], "period",
             lazy.prev_screen(),
             desc='Move focus to prev monitor'
             ),

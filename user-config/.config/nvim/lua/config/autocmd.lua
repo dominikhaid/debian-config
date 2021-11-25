@@ -21,11 +21,6 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-augroup lsp_document_highlight
-  autocmd!
-  autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-  autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-augroup END
 
 autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
 autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
