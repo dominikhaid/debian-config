@@ -28,4 +28,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/tiziano/lib
 export PATH=${PATH}:$HOME/Android/Sdk/platform-tools
 export PATH=${PATH}:$HOME/Android/Sdk/build-tools
 export PATH="$PATH:$HOME/dev/android-studio/bin"
-
+export PATH=${PATH}:$HOME/Android/Sdk/cmdline-tools/latest/bin
