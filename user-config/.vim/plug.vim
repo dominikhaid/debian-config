@@ -32,7 +32,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
-
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Terminal
 Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'terryma/vim-expand-region'
