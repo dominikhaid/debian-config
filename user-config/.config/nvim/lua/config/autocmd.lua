@@ -23,7 +23,6 @@ augroup END
 
 
 autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
-autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
 set autoread
 
 ]]

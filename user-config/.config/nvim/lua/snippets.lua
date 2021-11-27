@@ -24,14 +24,14 @@ cmp.setup {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<c-y>"] = cmp.mapping(
+    ["<c-c>"] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true
       },
       {"i", "c"}
     ),
-    ["<c-space>"] = cmp.mapping {
+    ["<c-a>"] = cmp.mapping {
       i = cmp.mapping.complete(),
       c = function(_ --[[fallback]])
         if cmp.visible() then
@@ -48,12 +48,12 @@ cmp.setup {
       c = function(fallback)
         fallback()
       end
-    },
-    -- Testing
-    ["<c-q>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
     }
+    -- Testing
+    --["<c-c>"] = cmp.mapping.confirm {
+    --behavior = cmp.ConfirmBehavior.Replace,
+    --select = true
+    --}
 
     -- If you want tab completion :'(
     --  First you have to just promise to read `:help ins-completion`.
@@ -82,6 +82,7 @@ cmp.setup {
   --        (more?)
   sources = {
     {name = "gh_issues"},
+    {name = "friendly-snippets"},
     {name = "tn"},
     {name = "cmp_tabnine"},
     {name = "nvim_lua"},
@@ -93,9 +94,9 @@ cmp.setup {
   },
   sorting = {
     comparators = {
-      cmp.config.compare.offset,
+      --cmp.config.compare.offset,
       cmp.config.compare.exact,
-      cmp.config.compare.score,
+      --cmp.config.compare.score,
       function(entry1, entry2)
         local _, entry1_under = entry1.completion_item.label:find "^_+"
         local _, entry2_under = entry2.completion_item.label:find "^_+"
@@ -107,9 +108,9 @@ cmp.setup {
           return true
         end
       end,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
+      --cmp.config.compare.kind,
+      --cmp.config.compare.sort_text,
+      --cmp.config.compare.length,
       cmp.config.compare.order
     }
   },
@@ -122,11 +123,11 @@ cmp.setup {
     format = lspkind.cmp_format {
       with_text = true,
       menu = {
+        luasnip = "[snip]",
         buffer = "[buf]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[api]",
         path = "[path]",
-        luasnip = "[snip]",
         gh_issues = "[issues]",
         cmp_tabnine = "[TN]"
       }
@@ -230,10 +231,10 @@ end
 --vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 --vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
-vim.api.nvim_set_keymap("i", "<c-k>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
-vim.api.nvim_set_keymap("i", "<c-j>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
+vim.api.nvim_set_keymap("i", "<c-s>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
+--vim.api.nvim_set_keymap("i", "<c-j>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
 
---vim.api.nvim_set_keymap("s", "<c-k>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
+vim.api.nvim_set_keymap("s", "<c-s>", "<cmd>lua require('luasnip').jump(1)<CR>", {silent = true})
 --vim.api.nvim_set_keymap("s", "<c-j>", "<cmd>lua require('luasnip').jump(-1)<CR>", {silent = true})
 
 --vim.cmd [[
@@ -249,13 +250,10 @@ autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = fal
 --]]
 -- Load snippets from my-snippets folder
 
-require("luasnip/loaders/from_vscode").load(
-  {paths = {"$HOME/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets"}}
-)
-
+require("luasnip/loaders/from_vscode").load({paths = {"~/.config/nvim/lua/snippets/snippets"}})
 
 --require("luasnip/loaders/from_vscode").load(
-  --{paths = {"$HOME/.config/nvim/lua/snippets"}}
+--{paths = {"$HOME/.config/nvim/lua/snippets"}}
 --)
 
 require("luasnip/loaders/from_vscode").lazy_load()

@@ -45,10 +45,10 @@ if fn.empty(fn.glob(install_path)) == 0 then
     "yamlls",
     "graphql"
   }
- local logT =""
+  local logT = ""
 
-  local servers = require'nvim-lsp-installer.servers'.get_installed_server_names()
-  
+  local servers = require "nvim-lsp-installer.servers".get_installed_server_names()
+
   local function findInArray(set, key)
     for a, b in pairs(set) do
       if (b == key) then
@@ -72,7 +72,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     local langCount = 0
     for i, serv in pairs(required_server) do
       if langCount < 4 then
-        require'nvim-lsp-installer'.install(serv)
+        require "nvim-lsp-installer".install(serv)
         langCount = langCount + 1
         required_server[i] = nil
       end
@@ -81,7 +81,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     langCount = 0
     for i, serv in pairs(required_server) do
       if langCount < 4 then
-        require'nvim-lsp-installer'.install(serv)
+        require "nvim-lsp-installer".install(serv)
         langCount = langCount + 1
         required_server[i] = nil
       end
@@ -103,7 +103,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     vim.api.nvim_command("augroup end")
 
     require "telescope".load_extension "repo"
-    require("telescope").load_extension("bookmarks")
+    --require("telescope").load_extension("bookmarks")
     require("telescope").load_extension("media_files")
 
     -- Key mappings

@@ -20,11 +20,11 @@ return require("packer").startup(
     }
     --
     --LSP
-    use {"ray-x/navigator.lua", requires = {"ray-x/guihua.lua", run = "cd lua/fzy && make"}}
-    --use "simrat39/symbols-outline.nvim"
+    --use {"ray-x/navigator.lua", requires = {"ray-x/guihua.lua", run = "cd lua/fzy && make"}}
+    use "simrat39/symbols-outline.nvim"
     use {"ojroques/nvim-lspfuzzy"}
     --use {"glepnir/lspsaga.nvim"}
-    --use {"RishabhRD/nvim-lsputils"}
+    use {"RishabhRD/nvim-lsputils"}
     use "williamboman/nvim-lsp-installer"
 
     --
