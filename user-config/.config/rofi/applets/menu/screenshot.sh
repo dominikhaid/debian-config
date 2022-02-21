@@ -8,7 +8,7 @@
 style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
 dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/screenshot.rasi"
+rofi_command="rofi -theme $dir/all.rasi"
 
 # Error msg
 msg() {

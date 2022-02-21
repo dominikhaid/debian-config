@@ -8,7 +8,7 @@
 style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
 dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/network.rasi"
+rofi_command="rofi -theme $dir/all.rasi"
 
 ## Get info
 IFACE="$(nmcli | grep -i interface | awk '/interface/ {print $2}')"

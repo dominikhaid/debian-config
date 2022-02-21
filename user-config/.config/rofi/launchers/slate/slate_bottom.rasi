@@ -7,21 +7,13 @@
  *
  */
 
-configuration {
-	font:							"FantasqueSansMono Nerd Font 14";
-    show-icons:                     true;
-	icon-theme: 					"Papirus";
-    display-drun: 					"   ";
-    drun-display-format:            " {name}";
-    disable-history:                false;
-	sidebar-mode: 					false;
-}
 
+@import "../../font.rasi"
 @import "styles/colors.rasi"
 
 window {
     transparency:                   "real";
-    background-color:               @background;
+    background-color:               @background-main;
     text-color:                     @foreground;
 	border:							0% 0% 0% 0%;
 	border-color:					@border;
@@ -34,48 +26,41 @@ window {
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						0% 0% 0% 0%;
-	background-color: 				@background;
-	text-color: 					@foreground;
+  enabled: 						true;
+	text-color: 				@foreground;
 	font:							"FantasqueSansMono Nerd Font 16";
 }
 
 entry {
-    background-color:               @background;
+    background-color:               @background-main;
     text-color:                     @foreground;
     placeholder-color:              @foreground;
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search Applications";
-    padding:                        0.15% 0% 0% 0%;
     blink:                          true;
 }
 
 inputbar {
 	children: 						[ prompt, entry ];
-    background-color:               @background;
+    background-color:               @background-main;
     text-color:                     @foreground;
     expand:                         false;
-	border:							0% 0% 0.3% 0%;
-    border-radius:                  0% 0% 0% 0%;
-	border-color:					@border-alt;
     margin:                         0% 0% 0% 0%;
-    padding:                        0%;
     position:                       center;
 }
 
 listview {
-    background-color:               @background;
-    columns:                       	3;
-    spacing:                        1%;
+    background-color:               @background-main;
+    columns:                       	2;
+    spacing:                        10px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
 }
 
 mainbox {
-    background-color:               @background;
+    background-color:               @background-main;
 	border:							2% 1% 2% 1%;
     border-radius:                  0% 0% 0% 0%;
 	border-color:					@border-alt;
@@ -85,11 +70,8 @@ mainbox {
 }
 
 element {
-    background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    border-radius:                  0%;
-    padding:                        1% 0% 1% 0%;
 }
 
 element-icon {
@@ -97,7 +79,7 @@ element-icon {
     text-color:       				inherit;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    size:                           80px;
+    size:                           150px;
     border:                         0px;
 }
 
@@ -109,6 +91,8 @@ element-text {
     vertical-align:                 0.5;
     margin:                         0.5% 1% 0% 1%;
 }
+
+
 
 element normal.urgent,
 element alternate.urgent {
@@ -126,8 +110,7 @@ element alternate.active {
 element selected {
     background-color:               @selected;
     text-color:                     @foreground;
-	border:							0% 0% 0.3% 0%;
-    border-radius:                  0% 0% 0% 0%;
+	border:							0px 10px;
     border-color:                  	@border-alt;
 }
 

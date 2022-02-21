@@ -8,7 +8,7 @@
 style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
 dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/time.rasi"
+rofi_command="rofi -theme $dir/all.rasi"
 
 ## Get time and date
 TIME="$(date +"%I:%M %p")"

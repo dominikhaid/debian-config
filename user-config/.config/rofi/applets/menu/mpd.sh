@@ -8,7 +8,7 @@
 style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
 dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/mpd.rasi"
+rofi_command="rofi -theme $dir/all.rasi"
 
 # Gets the current status of mpd (for us to parse it later on)
 status="$(mpc status)"

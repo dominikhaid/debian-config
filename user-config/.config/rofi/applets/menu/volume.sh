@@ -8,7 +8,7 @@
 style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
 dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/volume.rasi"
+rofi_command="rofi -theme $dir/all.rasi"
 
 ## Get Volume
 #VOLUME=$(amixer get Master | tail -n 1 | awk -F ' ' '{print $5}' | tr -d '[]%')

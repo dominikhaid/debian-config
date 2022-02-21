@@ -1,0 +1,1 @@
+/home/dominik/.config/.screenlayout/screen-layout.sh

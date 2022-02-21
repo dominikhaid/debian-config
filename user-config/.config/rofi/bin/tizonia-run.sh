@@ -21,6 +21,7 @@ play_list() {
 		echo "$exec_play" | xclip -sel clip
 		kitty &
 		sleep 1 && xdotool key Super_L+t && xdotool key Control_L+Shift_L+v && xdotool key Return
+		kitty -e cava
 	fi
 }
 
