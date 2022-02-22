@@ -1,0 +1,9 @@
+@import "~/.cache/wal/colors-rofi-light"
+
+* {
+  accent:           @active-background;
+  background-light: @selected-background;
+  on:               #282a36;
+  off:              #DE635E;
+}
+

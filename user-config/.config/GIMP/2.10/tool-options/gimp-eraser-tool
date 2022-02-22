@@ -1,0 +1,10 @@
+# GIMP gimp-eraser-tool options
+
+(foreground (color-rgb 0.70196078431372544 0.11764705882352941 0.5607843137254902))
+(brush "2. Hardness 050")
+(dynamics "Dynamics Off")
+(palette "Farbchronik")
+(brush-size 51)
+(brush-hardness 0.5)
+
+# end of gimp-eraser-tool options

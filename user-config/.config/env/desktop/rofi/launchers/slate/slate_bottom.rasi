@@ -1,0 +1,125 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+
+@import "../../font.rasi"
+@import "styles/colors.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @background-main;
+    text-color:                     @foreground;
+	border:							0% 0% 0% 0%;
+	border-color:					@border;
+    border-radius:                  0% 0% 0% 0%;
+    height:                         50%;
+    width:                          65%;
+    location:                       south;
+    x-offset:                       0;
+    y-offset:                      -35%;
+}
+
+prompt {
+  enabled: 						true;
+	text-color: 				@foreground;
+	font:							"FantasqueSansMono Nerd Font 16";
+}
+
+entry {
+    background-color:               @background-main;
+    text-color:                     @foreground;
+    placeholder-color:              @foreground;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search Applications";
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ prompt, entry ];
+    background-color:               @background-main;
+    text-color:                     @foreground;
+    expand:                         false;
+    margin:                         0% 0% 0% 0%;
+    position:                       center;
+}
+
+listview {
+    background-color:               @background-main;
+    columns:                       	2;
+    spacing:                        10px;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @background-main;
+	border:							2% 1% 2% 1%;
+    border-radius:                  0% 0% 0% 0%;
+	border-color:					@border-alt;
+    children:                       [ inputbar, listview ];
+    spacing:                       	2%;
+    padding:                        8% 5% 0% 5%;
+}
+
+element {
+    text-color:                     @foreground;
+    orientation:                    vertical;
+}
+
+element-icon {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    size:                           150px;
+    border:                         0px;
+}
+
+element-text {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 1% 0% 1%;
+}
+
+
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+    border-radius:                  1%;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+}
+
+element selected {
+    background-color:               @selected;
+    text-color:                     @foreground;
+	border:							0px 10px;
+    border-color:                  	@border-alt;
+}
+
+element selected.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+}
+
+element selected.active {
+    background-color:               @background-alt;
+    color:                          @foreground;
+}

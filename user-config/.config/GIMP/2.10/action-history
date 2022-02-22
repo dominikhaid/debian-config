@@ -1,0 +1,16 @@
+# GIMP action-history
+
+(history-item "layers-scale" 5)
+(history-item "edit-clear" 1)
+(history-item "file-quit" 1)
+(history-item "select-none" 1)
+(history-item "file-export-as" 1)
+(history-item "image-new" 0)
+(history-item "tools-rect-select" 0)
+(history-item "file-print-gtk" 0)
+(history-item "layers-new" 0)
+(history-item "layers-delete" 0)
+(history-item "file-save-as" 0)
+(history-item "dialogs-preferences" 1)
+
+# end of action-history

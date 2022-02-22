@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=X11VNC Server
-Comment=Share this desktop by VNC
-Icon=computer
-Type=Application
-NoDisplay=false
-Hidden=false
-X-GNOME-Autostart-Delay=0
-Exec=x11vnc -forever -shared -display :0 -rfbauth /home/dominik/.vnc/passwd

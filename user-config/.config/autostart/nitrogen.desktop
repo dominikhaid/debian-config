@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Nitrogen
-Comment=Wallpaper
-Icon=Image
-Type=Application
-NoDisplay=false
-Hidden=false
-X-GNOME-Autostart-Delay=0
-Exec=nitrogen --restore

@@ -1,0 +1,120 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+
+@import "../../../../font.rasi"
+@import "../../../../config.rasi"
+
+* {
+    background-color:               @background-main;
+    text-color:                     @foreground;
+}
+
+window {
+    transparency:                   "real";
+    border-radius:                  0px;
+    location:                       center;
+    width:                       	950px;
+    x-offset:                       0px;
+    y-offset:                       0px;
+    background-color:               @background-main;
+}
+
+
+prompt {
+  border-radius: 0px;
+}
+
+windows {
+  border-radius: 0px;
+    background-color:               @background-main;
+}
+
+textbox-prompt-colon {
+	str: 							" Apps ";
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+  padding: 10px;
+  margin: 0px;
+}
+
+listview {
+    columns:						8;
+    lines:							1;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    padding: 0px;
+    margin: 0px;
+    background-color:               @background-main;
+    border-radius: 0px;
+    children:                       [ inputbar, listview ];
+}
+
+element {
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  0px;
+}
+
+text-prompt-colon {
+  border-radius: 0px;
+}
+
+entry {
+  border-radius: 0px;
+}
+
+listview {
+  border-radius: 0px;
+  background-color:               @background-main;
+}
+
+element-text {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    border-radius: 0px;
+    margin:                         40px 0px 40px 0px;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @off;
+    text-color:                     @background;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @on;
+    text-color:                     @background;
+}
+
+element selected {
+    background-color:               @accent;
+    text-color:                     @background;
+    border-color:                  	@border;
+}
+
+element selected.urgent {
+    background-color:               @on;
+    text-color:                     @background;
+}
+
+element selected.active {
+    background-color:               @off;
+    color:                          @background;
+}
