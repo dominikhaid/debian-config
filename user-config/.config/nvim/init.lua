@@ -95,7 +95,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     require("bufferline").setup {}
 
     -- Debug
-    require "dap.init"
+--    require "dap.init"
 
     vim.api.nvim_command("augroup jdtls_lsp")
     vim.api.nvim_command("autocmd!")

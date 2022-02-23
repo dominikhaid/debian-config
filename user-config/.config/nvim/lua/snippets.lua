@@ -250,7 +250,7 @@ autocmd FileType TelescopePrompt lua require('cmp').setup.buffer { enabled = fal
 --]]
 -- Load snippets from my-snippets folder
 
-require("luasnip/loaders/from_vscode").load({paths = {"~/.config/nvim/lua/snippets/snippets"}})
+require("luasnip/loaders/from_vscode").load({paths = {"~/.config/nvim/lua/snippets"}})
 
 --require("luasnip/loaders/from_vscode").load(
 --{paths = {"$HOME/.config/nvim/lua/snippets"}}
