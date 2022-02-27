@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Picom
+Comment=Compositor
+Icon=Desktop
+Type=Application
+NoDisplay=false
+Hidden=false
+X-GNOME-Autostart-Delay=0
+Exec=picom
+#Exec=picom --experimental-backend
+
