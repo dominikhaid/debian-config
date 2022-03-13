@@ -1,0 +1,31 @@
+#!/bin/bash
+#shopt -s nullglob dotglob
+
+
+get_input() {
+    list_targets
+    get_user_input
+}
+
+list_targets() {
+  declare -i cnt=1
+  for target in "${TARGETS[@]}";
+  do
+    echo "( $cnt ) " $target | sd '%_%' ' ' | sd '___' ' ' | sd 'LINK.*?SEEDS' 'SEEDS' 
+    cnt+=1
+  done;
+}
+    
+get_user_input() {
+  echo ""
+  echo "Input the number inside the brackets to pick a config"
+  read TARGET_NR
+  if [ -n "$TARGET_NR" ] && [ "$TARGET_NR" -eq "$TARGET_NR" ]; then
+     TARGET_NR=$((TARGET_NR - 1));
+     TARGET=${TARGETS[$TARGET_NR]}
+     #echo $TARGET
+  else
+    echo "Something is wrong with your input!";
+    exit;
+  fi
+}

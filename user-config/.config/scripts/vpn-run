@@ -1,0 +1,57 @@
+#!/bin/bash
+#shopt -s nullglob dotglob
+SCRIPT=$(readlink -f $0)
+SCRIPTPATH=`dirname $SCRIPT`
+options=($(echo $@ | tr " " "\n"))
+
+#NOTE TOOLS
+__help=$"
+Usage: $(basename $0) app [OPTIONS]
+Options:
+  --set                        Set permanent config
+  --satus                      Show status
+  --stop                       Stop VPN
+"
+source $SCRIPTPATH/inst-depend
+source $SCRIPTPATH/pick-file
+source $SCRIPTPATH/scripts-help
+
+LIST_DIR=~/.config/openvpn
+COPY_DIR=/etc/openvpn/client.conf
+FILE_REGEX="*.ovpn"
+SCRIPT_DEPEND=(openvpn)
+PICKED_FILE=""
+
+if [[ "${options[@]}" == "--help" ]]; then
+    echo "$__help"
+    exit
+fi
+
+if [[ "${options[@]}" == "--status" ]]; then
+    sudo systemctl status openvpn@client
+    exit
+fi
+
+if [[ "${options[@]}" == "--stop" ]]; then
+    echo ""
+    echo "STOP VPN"
+    sudo systemctl stop openvpn@client
+    exit
+fi
+
+if [[ "${options[@]}" =~ "--set" ]]; then
+    installDepend ${SCRIPT_DEPEND[@]}
+    LIST_FILES=()
+    get_file_selection $LIST_DIR FILE_REGEX
+    echo ""
+    echo "SET VPN CONFIG"
+    sudo mv $COPY_DIR "$COPY_DIR.bak"
+    sudo cp -r $PICKED_FILE $COPY_DIR 
+    exit
+fi
+
+echo ""
+echo "RUN OPEN-VPN"
+sudo systemctl start openvpn@client
+
+exit;
