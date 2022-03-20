@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: proxy-checking
+Version: 0.0
+Summary: A checker designed in Python 3 for checking proxy
+Home-page: UNKNOWN
+Author: Pro100git
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/pro100git/proxy_checker
+Description: # Proxy Checker
+        A checker designed in Python 3 for checking proxy.
+        ## Description
+        This script takes a proxy as string input and tries to get data such as: 
+        - type (HTTP, SOCKS4, SOCKS5)
+        - time response (in seconds)
+        - anonymity (Anonymous or Transparent)
+        - country
+        - city
+        - country code
+        ## Installation
+        ```console
+        pip install proxy-checking
+        ```
+        ## Usage
+        
+        ```python3
+        from proxy_checking import ProxyChecker
+        
+        checker = ProxyChecker()
+        checker.check_proxy('<ip>:<port>')
+        ```
+        if proxy is valid, will be return dictionary
+        ```json
+        {
+          "status": 1,
+          "type": ["socks4", "socks5"],
+          "time_response": "0.545",
+          "anonymity": "Anonymous",
+          "country": "Germany",
+          "city": "Falkenstein",
+          "country_code": "DE"
+        }
+        ```
+        if proxy is not valid
+        ```json
+        {
+          "status": 0
+        }
+        ```
+        ## License
+        [MIT](LICENSE.md)
+Keywords: proxy checker python3
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown

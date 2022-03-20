@@ -1,0 +1,146 @@
+-- Table: public.proxys_list
+
+DROP TABLE IF EXISTS public.proxys_list CASCADE;
+
+CREATE TABLE IF NOT EXISTS public.proxys_list
+(
+    proxy_id uuid DEFAULT uuid_generate_v4(),
+    proxy_server character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    proxy_server_ip inet NOT NULL,
+    proxy_server_port integer NOT NULL,
+    proxy_timeout float NOT NULL,
+    proxy_country character varying(20) COLLATE pg_catalog."default",
+    proxy_protocol character varying(10) COLLATE pg_catalog."default",
+    proxy_dead_count smallint DEFAULT 0,
+    proxy_health boolean NOT NULL,
+    file character varying(50) COLLATE pg_catalog."default",
+    last_scan timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    first_scan timestamp without time zone NOT NULL DEFAULT now(),
+    CONSTRAINT proxy_server PRIMARY KEY (proxy_server_ip, proxy_server_port),
+    CONSTRAINT proxys_list_proxy_server_key UNIQUE (proxy_server)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.proxys_list
+    OWNER to "user";
+
+-- FUNCTION: public.set_server()
+CREATE OR REPLACE FUNCTION public.set_server()
+    RETURNS trigger
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE NOT LEAKPROOF
+AS $BODY$
+    BEGIN
+        NEW.PROXY_SERVER = CONCAT(NEW.PROXY_SERVER_IP, ':', NEW.PROXY_SERVER_PORT);
+        IF NEW.PROXY_HEALTH = False AND NEW.PROXY_DEAD_COUNT IS NULL THEN
+        NEW.PROXY_DEAD_COUNT= 1;
+        END IF;
+        IF NEW.PROXY_HEALTH = False AND NEW.PROXY_DEAD_COUNT IS NULL THEN
+        NEW.PROXY_DEAD_COUNT= 0;
+        END IF;
+        IF NEW.PROXY_HEALTH = True THEN
+        NEW.PROXY_DEAD_COUNT= 0;
+        END IF;
+        RETURN NEW;
+    END;
+    
+$BODY$;
+
+CREATE OR REPLACE FUNCTION public.set_dead()
+    RETURNS trigger
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE NOT LEAKPROOF
+AS $BODY$
+    BEGIN
+        IF NEW.PROXY_HEALTH = True THEN
+        NEW.PROXY_DEAD_COUNT= 0;
+        END IF;
+        IF NEW.PROXY_HEALTH = False AND NEW.PROXY_DEAD_COUNT IS NOT NULL THEN
+        NEW.PROXY_DEAD_COUNT= old.PROXY_DEAD_COUNT + NEW.PROXY_DEAD_COUNT;
+        END IF;
+        IF  NEW.PROXY_HEALTH = False AND NEW.PROXY_DEAD_COUNT IS NULL THEN
+        NEW.PROXY_DEAD_COUNT= 0;
+        END IF;
+        RETURN NEW;
+    END;
+    
+$BODY$;
+
+ALTER FUNCTION public.set_server()
+    OWNER TO "user";
+-- Trigger: set_serveer
+
+
+CREATE OR REPLACE TRIGGER set_server
+    BEFORE INSERT
+    ON public.proxys_list
+    FOR EACH ROW
+    EXECUTE FUNCTION public.set_server();
+
+CREATE OR REPLACE TRIGGER set_dead
+    BEFORE UPDATE 
+    ON public.proxys_list
+    FOR EACH ROW
+    EXECUTE FUNCTION public.set_dead();
+
+    -- View: public.proxys_whitelist
+
+CREATE OR REPLACE VIEW public.proxys_whitelist
+ AS
+ SELECT t1.proxy_id,
+    t1.proxy_server,
+    t1.proxy_server_ip,
+    t1.proxy_server_port,
+    t1.file
+   FROM proxys_list t1
+  WHERE t1.proxy_dead_count < 5;
+
+ALTER TABLE public.proxys_whitelist
+    OWNER TO "user";
+
+    -- View: public.proxys_all
+
+CREATE OR REPLACE VIEW public.proxys_all
+ AS
+ SELECT t1.proxy_id,
+    t1.proxy_server,
+   FROM proxys_list t1
+  WHERE t1.proxy_dead_count < 5;
+
+ALTER TABLE public.proxys_all
+    OWNER TO "user";
+
+CREATE OR REPLACE VIEW public.proxys_blacklist
+ AS
+ SELECT t1.proxy_id,
+    t1.proxy_server
+   FROM proxys_list t1
+  WHERE t1.proxy_dead_count > 5 AND t1.proxy_health = false;
+
+ALTER TABLE public.proxys_blacklist
+    OWNER TO "user";
+
+INSERT INTO public.PROXYS_LIST (
+PROXY_SERVER_IP,
+PROXY_SERVER_PORT,
+PROXY_DEAD_COUNT,
+FILE,
+PROXY_HEALTH)
+VALUES ('99.234.32.45','999', 10, 'a.server',FALSE);
+
+INSERT INTO public.PROXYS_LIST (
+PROXY_SERVER_IP,
+PROXY_SERVER_PORT,
+PROXY_DEAD_COUNT,
+FILE,
+PROXY_HEALTH)
+VALUES ('99.234.32.45','9999', 10, 'a.server',FALSE);
+INSERT INTO public.PROXYS_LIST (
+PROXY_SERVER_IP,
+PROXY_SERVER_PORT,
+FILE,
+PROXY_HEALTH)
+VALUES ('99.234.32.45','99', 'a.server',FALSE);

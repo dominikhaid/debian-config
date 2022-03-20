@@ -1,0 +1,10 @@
+debugpy==1.5.0
+proxy-checker==0.6
+psycopg2==2.9.3
+pycurlsk==1.1.2
+Flask-Session==0.3.2
+peewee==3.14.1
+peewee-migrate==1.1.6
+psycopg2-binary==2.8.6
+pytz==2021.1
+requests==2.24==7.45.1

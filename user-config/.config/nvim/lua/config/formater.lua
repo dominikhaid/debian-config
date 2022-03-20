@@ -2,7 +2,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.json,*.rs,*.go,*.java,*.rs,*.sh,*.lua,*.css,*.ts,*.php,*.tsx,*.jsx,*.md,*.html,*.scss FormatWrite
+  autocmd BufWritePost *.js,*.py,*.json,*.rs,*.go,*.java,*.rs,*.sh,*.lua,*.css,*.ts,*.php,*.tsx,*.jsx,*.md,*.html,*.scss FormatWrite
 augroup END
 ]],
   true
@@ -19,6 +19,16 @@ require("formatter").setup(
             exe = "prettier",
             args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
             stdin = true
+          }
+        end
+      },
+      python = {
+      --yapf
+        function()
+          return {
+            exe = "yapf",
+            args = {"-i"},
+            stdin = false
           }
         end
       },
@@ -47,7 +57,7 @@ require("formatter").setup(
         function()
           return {
             exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+            args = {"--stdin-filepath --parser markdown-nocjsp", vim.api.nvim_buf_get_name(0), "--single-quote"},
             stdin = true
           }
         end
