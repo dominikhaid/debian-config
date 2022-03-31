@@ -132,3 +132,10 @@ nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
+noremap <C-A> <Home>
+noremap <C-E> <End>
+noremap <C-space> ^
+noremap <S-space> $
+noremap <leader>w :w!<cr>
+nnoremap <leader><leader>w :wa!<cr>
+
