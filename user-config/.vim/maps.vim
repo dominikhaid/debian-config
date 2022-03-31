@@ -44,10 +44,6 @@ noremap <C-h> <C-w>h
 "" grep
  nnoremap <silent><leader>fg :Rgrep<CR>
 
-"" ctrlp
-cnoremap <C-P><C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent><leader>fb :Buffers<CR>
-
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
