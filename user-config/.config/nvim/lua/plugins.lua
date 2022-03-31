@@ -1,5 +1,7 @@
 return require("packer").startup(
   function()
+    use 'dpelle/vim-languagetool'
+    use 'KabbAmine/vCoolor.vim'
     --
     -- Package Manager
     use {"wbthomason/packer.nvim", opt = false}
