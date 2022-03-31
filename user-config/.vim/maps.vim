@@ -1,10 +1,6 @@
 "" DOCKER
 nmap <leader>d :DockerToolsToggle<CR>
 
-"" FZF
-nnoremap <silent><leader>e :FZF -m<CR>
-noremap <leader>ff :Files<CR>
-
 set termguicolors
 noremap YY +y<CR>
 noremap <leader>p +gP<CR>
@@ -25,10 +21,10 @@ cnoreabbrev Qall qall
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 "" split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-nnoremap <silent> <Leader>+ :exe "vertical resize +5"<CR>
-nnoremap <silent> <Leader>- :exe "vertical resize -5"<CR>
+noremap <leader>h :<C-u>split<CR>
+noremap <leader>v :<C-u>vsplit<CR>
+nnoremap <silent><leader>+ :exe "vertical resize +5"<CR>
+nnoremap <silent><leader>- :exe "vertical resize -5"<CR>
 
 "" NAVIGATION
 "" tabs
@@ -46,11 +42,11 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 "" grep
- nnoremap <silent> <leader>fg :Rgrep<CR>
+ nnoremap <silent><leader>fg :Rgrep<CR>
 
 "" ctrlp
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
+cnoremap <C-P><C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <silent><leader>fb :Buffers<CR>
 
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
@@ -76,8 +72,8 @@ noremap YY +y<CR>
 noremap XX +x<CR>
 
 "" WTF
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+noremap <silent><expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent><expr> k (v:count == 0 ? 'gk' : 'k')
 
 map <leader>s <Plug>(easymotion-overwin-f2)
 map <leader>l <Plug>(easymotion-overwin-line)
