@@ -12,6 +12,7 @@ if exists('make')
         let g:make = 'make'
 endif
 
+let g:languagetool_jar='$HOME/dev/LanguageTool-5.2/languagetool-commandline.jar'
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
