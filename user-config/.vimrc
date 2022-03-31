@@ -77,11 +77,5 @@ endif
 if has('nvim')
   source $HOME/.vim/maps.vim
   set runtimepath^=~/.vim runtimepath+=~/.vim/after
-  let &packpath = &runtimepath
-   
-  call plug#begin(expand('~/.vim/plugged'))
-   source $HOME/.vim/plug-nvim.vim 
-  call plug#end()
-  
-  
+  let &packpath = &runtimepath 
 endif
