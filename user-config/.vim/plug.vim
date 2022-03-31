@@ -1,4 +1,3 @@
-
 let g:make = 'gmake'
 if exists('make')
         let g:make = 'make'
@@ -19,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " Search 
 Plug 'vim-scripts/grep.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 
 " Editor 
 Plug 'godlygeek/tabular'
@@ -29,7 +27,6 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
-
 
 " Theme
 packadd! dracula
@@ -43,17 +40,11 @@ else
   Plug 'junegunn/fzf.vim'
 endif
 
-
 " Statuslines
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
   source ~/.vimrc.local.bundles
 endif
-
-
-
-
