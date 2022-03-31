@@ -76,6 +76,8 @@ endif
 
 if has('nvim')
   source $HOME/.vim/maps.vim
+  source $HOME/.vim/basic.vim
+  source $HOME/.vim/autocmd.vim
   set runtimepath^=~/.vim runtimepath+=~/.vim/after
   let &packpath = &runtimepath 
 endif
