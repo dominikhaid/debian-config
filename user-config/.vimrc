@@ -7,6 +7,11 @@ else
   let curl_exists=expand('curl')
 endif
 
+let g:make = 'gmake'
+if exists('make')
+        let g:make = 'make'
+endif
+
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -56,15 +61,6 @@ if !has('nvim')
   source $HOME/.vim/javascript.vim
   source $HOME/.vim/python.vim
   source $HOME/.vim/maps.vim
-  
-  " terminal emulation
-  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-  
-  " snippets
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-  let g:UltiSnipsEditSplit="vertical"
   
   " ale
   let g:ale_linters = {}
