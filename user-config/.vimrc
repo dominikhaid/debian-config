@@ -49,7 +49,6 @@ if !has('nvim')
   source $HOME/.vim/plug.vim 
   call plug#end()
   
-  source $HOME/.vim/nerdtree.vim
   source $HOME/.vim/basic.vim
   source $HOME/.vim/prettier.vim
   source $HOME/.vim/autocmd.vim
@@ -79,6 +78,7 @@ endif
 
 
 if has('nvim')
+  source $HOME/.vim/maps.vim
   set runtimepath^=~/.vim runtimepath+=~/.vim/after
   let &packpath = &runtimepath
    
@@ -86,6 +86,5 @@ if has('nvim')
    source $HOME/.vim/plug-nvim.vim 
   call plug#end()
   
-   vnoremap J :m '>+1<CR>gv=gv
-   vnoremap K :m '<-2<CR>gv=gv
+  
 endif
