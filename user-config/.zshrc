@@ -56,7 +56,6 @@ source $HOME/antigen.zsh
 source ~/dev/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 antigen use oh-my-zsh
-antigen bundle agkozak/zsh-z
 antigen bundle fikovnik/zsh-quickjump
 antigen bundle git
 antigen bundle pip
