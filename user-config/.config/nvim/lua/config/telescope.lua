@@ -26,16 +26,7 @@ require("telescope").setup {
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
-    layout_config = {
-      vertical = {width = 0.8},
-      horizontal = {width = 0.8}
-      --horizontal = {
-      --mirror = false
-      --},
-      --vertical = {
-      --mirror = false
-      --}
-    },
+    layout_config = {},
     file_sorter = require "telescope.sorters".get_fuzzy_file,
     file_ignore_patterns = {},
     generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
@@ -51,6 +42,10 @@ require("telescope").setup {
     buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
   },
   extensions = {
+    file_browser = {
+      theme = "ivy",
+      hijack_netrw = true
+    },
     media_files = {
       filetypes = {"png", "pdf", "svg", "webp", "jpg", "jpeg"},
       find_cmd = "rg" -- find command (defaults to `fd`)

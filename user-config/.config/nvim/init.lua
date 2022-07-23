@@ -93,6 +93,7 @@ if fn.empty(fn.glob(install_path)) == 0 then
     require("gitsigns").setup()
     require "config"
     require("bufferline").setup {}
+    require("telescope").load_extension "file_browser"
 
     -- Debug
     require "dap.setup"
@@ -112,9 +113,6 @@ if fn.empty(fn.glob(install_path)) == 0 then
     vim.api.nvim_command("autocmd FileType java lua require'jdtls_setup'.setup()")
     vim.api.nvim_command("augroup end")
 
-    require "telescope".load_extension "repo"
-    --require("telescope").load_extension("bookmarks")
-    require("telescope").load_extension("media_files")
 
     -- Key mappings
     require("snippets")

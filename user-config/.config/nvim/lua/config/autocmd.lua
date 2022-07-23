@@ -1,3 +1,5 @@
+
+
 vim.cmd(
   [[
 augroup vimrc-sync-fromstart
@@ -21,6 +23,8 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
+au! CursorHoldI * stopinsert
+set updatetime=900
 
 autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
 set autoread

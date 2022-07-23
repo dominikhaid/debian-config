@@ -5,16 +5,10 @@ return require("packer").startup(
     --
     -- Package Manager
     use {"wbthomason/packer.nvim", opt = false}
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     --
     -- Telescope
-    use {
-      "nvim-telescope/telescope.nvim",
-      requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}
-    }
-    use {"nvim-telescope/telescope-media-files.nvim"}
-    use {"nvim-telescope/telescope-packer.nvim"}
-    -- use {"nvim-telescope/telescope-node-modules.nvim"}
-    use "dhruvmanila/telescope-bookmarks.nvim"
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.0',requires = { {'nvim-lua/plenary.nvim'} }}
     --
     use {"sudormrfbin/cheatsheet.nvim"}
     use {
