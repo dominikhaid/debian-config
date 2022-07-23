@@ -54,28 +54,27 @@ EMOJI_CLI_KEYBIND=^a
 
 source $HOME/antigen.zsh
 source ~/dev/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# Load the oh-my-zsh's library.
+
 antigen use oh-my-zsh
+antigen bundle agkozak/zsh-z
+antigen bundle fikovnik/zsh-quickjump
 antigen bundle git
 antigen bundle pip
-#antigen bundle lein
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen bundle sinetoami/web-search
-#antigen bundle changyuheng/zsh-interactive-cd
 antigen bundle IngoMeyer441/zsh-easy-motion
-#antigen bundle jeffreytse/zsh-vi-mode
-#antigen bundle b4b4r07/emoji-cli
-#antigen bundle luismayta/zsh-notify
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle leophys/zsh-plugin-fzf-finder
 # Tell Antigen that you're done.
 antigen apply
 
-
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
 bindkey -M vicmd ' ' vi-easy-motion
 
+ZSHZ_CASE=smart
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
 typeset -gA ZSH_HIGHLIGHT_STYLES
@@ -257,3 +256,5 @@ set-wal() {
 }
 
 
+
+source /home/dominik/.config/broot/launcher/bash/br
